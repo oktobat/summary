@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>text-shadow와 box-shadow 속성</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        background: #fff;
+        font-size: 80px;
+        color: #707070;
+        font-family: "Erica One";
+        text-shadow: -0.03em 0.03em #eeeeee, -0.06em 0.06em #707070;
+        border: 1px solid #000;
+        margin: 100px auto;
+        width: 400px;
+        text-align: center;
+      }
+      .effect2 {
+        position: relative;
+      }
+      .effect2:hover::before,
+      .effect2:hover::after {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 15px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width: 300px;
+        background: #777;
+        -webkit-box-shadow: 0 15px 10px #777;
+        -moz-box-shadow: 0 15px 10px #777;
+        box-shadow: 0 15px 10px #777;
+        -webkit-transform: rotate(-3deg);
+        -moz-transform: rotate(-3deg);
+        -o-transform: rotate(-3deg);
+        -ms-transform: rotate(-3deg);
+        transform: rotate(-3deg);
+      }
+      .effect2:hover::after {
+        -webkit-transform: rotate(3deg);
+        -moz-transform: rotate(3deg);
+        -o-transform: rotate(3deg);
+        -ms-transform: rotate(3deg);
+        transform: rotate(3deg);
+        right: 10px;
+        left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        텍스트 그림자 속성(https://www.mixfont.com/shadows)
+        text-shadow : 가로방향(px) 세로방향(px) 그림자경계흐림값(px) 색상;
+
+        박스 그림자 속성(https://inpa.tistory.com/entry/CSS-%F0%9F%92%8D-%EA%B7%B8%EB%A6%BC%EC%9E%90box-shadow-%EB%94%94%EC%9E%90%EC%9D%B8-%F0%9F%96%8C%EF%B8%8F-%EB%AA%A8%EC%9D%8C)
+        box-shadow : 가로방향 세로방향 그림자경계흐림값 그림자크기 색상 inset(안쪽그림자);
+     -->
+    <h1 class="effect2">김은영</h1>
+  </body>
+</html>

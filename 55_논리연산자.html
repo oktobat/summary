@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // and 연산자(논리곱 : 전부 참이어야 참) : &&
+      // or 연산자(논리합 : 전부 거짓이면 거짓) : ||
+      // not 연산자(부정 : 반대) : !
+      // 논리연산의 결과는 true 또는 false
+
+      let boolean1 = true;
+      let boolean2 = false;
+      let boolean3 = true;
+      let boolean4 = false;
+      let result;
+      result = boolean1 && boolean2;
+      document.write(result + "<br>"); // false
+
+      result = boolean1 || boolean4;
+      document.write(result + "<br>"); // true
+
+      //   && > ||
+      result = boolean1 || (boolean2 && boolean3);
+      document.write(result + "<br>"); // true
+
+      let number1 = 10;
+      let number2 = 20;
+      let number3 = 10;
+      // 산술 > 비교 > 논리 > 대입
+      result = number1 < number2 && number1 == number3 + number1;
+      //               true             10  ==   20
+      //               true      &&      false
+      //                         false
+      document.write(!result); // true
+    </script>
+  </body>
+</html>

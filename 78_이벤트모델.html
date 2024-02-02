@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        인라인이벤트모델 : 태그 뒤에 이벤트속성에 자바스크립트 코드를 직접 사용 
+        고전(기본)이벤트모델 : 태그 뒤에 이벤트를 직접 연결하는 방식은 하나의 이벤트만 쓸 수 있으며, 이벤트를 연결할 html 요소를 취득한 후 이벤트를 객체의 메서드 형식으로 연결하면 여러개를 쓸 수 있음. 
+        표준이벤트모델 : 객체.addEventListener('이벤트명', 함수)의 방식으로 이벤트를 연결함
+
+        마우스이벤트 : click, dblclick, mouseover/mouseout, mouseenter/mouseleave, mousedown/mouseup, mousemove
+        키보드이벤트 : keydown, keyup, keypress
+        폼이벤트 : focus, blur, change, submit, reset, select
+        윈도우이벤트 : scroll, resize, load
+    -->
+    <h1
+      onclick='
+      let h1 = document.querySelector("h1"); 
+      h1.style.color = "red"; 
+      h1.style.fontSize = "50px"; 
+      h1.style.backgroundColor = "pink";
+      '
+    >
+      김은영
+    </h1>
+
+    <!-- 고전이벤트모델1 -->
+    <h2 onclick="colorChange()">김은영</h2>
+
+    <!-- 고전이벤트모델2 -->
+    <h3>장나라</h3>
+
+    <!-- 표준이벤트모델 -->
+    <h4>표준이벤트모델</h4>
+
+    <button id="button">버튼-</button>
+
+    <script>
+      // 고전이벤트모델1
+      let h2 = document.querySelector("h2");
+      function colorChange() {
+        h2.style.color = "red";
+      }
+
+      //  고전이벤트모델2
+      let h3 = document.querySelector("h3");
+      h3.ondblclick = function () {
+        this.style.color = "red";
+        this.style.fontSize = "50px";
+        this.style.backgroundColor = "pink";
+      };
+      function changeText() {
+        this.textContent = "홍길동";
+      }
+      // 이벤트속성에 대입되는 함수호출문에는 ()를 사용하면 안됨
+      h3.onclick = changeText;
+
+      // 표준이벤트모델
+      let h4 = document.querySelector("h4");
+      function pink() {
+        h4.style.background = "pink";
+      }
+      function fontSize() {
+        h4.style.fontSize = "50px";
+      }
+      h4.addEventListener("dblclick", pink);
+      h4.addEventListener("click", fontSize);
+      //   h4.removeEventListener("dblclick", pink);
+      //   h4.removeEventListener("click", fontSize);
+
+      let button = document.querySelector("#button");
+      button.addEventListener("click", function () {
+        this.textContent = this.textContent + "★";
+      });
+    </script>
+  </body>
+</html>

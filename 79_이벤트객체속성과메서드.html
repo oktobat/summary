@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #bt {
+        padding: 50px;
+        margin: 50px;
+      }
+      #area {
+        width: 300px;
+        height: 300px;
+        background: green;
+        margin: 50px;
+      }
+      #box {
+        padding: 30px;
+        background: red;
+      }
+      #box a {
+        display: inline-block;
+        padding: 30px;
+        background: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="bt">버튼</button>
+    <div id="area">
+      여기에 마우스 왼쪽, 가운데, 오른쪽 버튼 클릭
+      <p></p>
+      <p></p>
+    </div>
+
+    <div id="box">
+      <a href="http://www.naver.com">네이버</a>
+    </div>
+
+    <!-- 이벤트객체 속성
+        target : 이벤트를 발생시킨 객체를 반환
+        type : 이벤트의 이름을 반환
+        clientX : 이벤트가 발생한 X좌표값 반환(브라우저기준)
+        clinetY : 이벤트가 발생한 Y좌표값 반환(브라우저기준)
+        screenX : 이벤트가 발생한 X좌표값 반환(모니터기준)
+        screenY : 이벤트가 발생한 Y좌표값 반환(모니터기준)
+        button : 0(마우스왼쪽), 1(가운데휠), 2(오른쪽) 반환
+
+        이벤트객체 메서드
+        preventDefault() : 기본이벤트의 실행을 막아줌
+        stopPropagation() : 이벤트 버블링(전파)을 막아줌
+     -->
+
+    <script>
+      let bt = document.querySelector("#bt");
+      let area = document.querySelector("#area");
+      let elp = document.querySelectorAll("#area > p");
+      let box = document.querySelector("#box");
+      let atag = document.querySelector("#box a");
+      // 버튼을(bt)을 클릭하면 area의 배경색을 red, 글자색을 blue, 글씨크기 30px로 변경하시오.(고전이벤트모델)
+      bt.onclick = function (e) {
+        area.style.background = "red";
+        area.style.color = "blue";
+        area.style.fontSize = "30px";
+        // elp[0].textContent = e.target;
+        // elp[1].textContent = e.type;
+        // elp[0].textContent = e.screenX;
+        // elp[1].textContent = e.screenY;
+      };
+      bt.onmousedown = function (e) {
+        elp[0].textContent = e.button;
+      };
+
+      //   atag.onclick = function (e) {
+      //      e.preventDefault();
+      //   };
+      atag.onclick = function (e) {
+        e.stopPropagation();
+        this.style.background = "yellow";
+        return false;
+      };
+      box.onclick = function () {
+        this.style.background = "green";
+      };
+    </script>
+  </body>
+</html>

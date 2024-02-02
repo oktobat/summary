@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header1"><span>김은영</span></h1>
+    <h1 id="header2"><span>장나라</span></h1>
+    <h1 id="header3">홍길동</h1>
+
+    <script>
+      // innerHTML : 태그를 포함하여 내용을 변경할 수 있음
+      // innerText : 태그 안의 텍스트만 변경할 수 있음(공백제거)
+      // textContent : 태그 안의 텍스트만 변경할 수 있음(공백포함)
+      let header1 = document.querySelector("#header1");
+      let header2 = document.querySelector("#header2");
+      let header3 = document.querySelector("#header3");
+
+      document.write(header1.innerHTML + "<br>");
+      document.write(header2.innerText + "<br>");
+      document.write(header3.textContent + "<br>");
+
+      header1.innerHTML = "<em>Kim Eun Young</em>";
+      header2.innerText = "  Jang Na La  ";
+      header3.textContent = "  Hong Gil Dong  ";
+    </script>
+  </body>
+</html>

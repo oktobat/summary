@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Number(), String(), Boolean() 함수
+
+      //   let number1 = prompt("숫자를 입력하세요.", "");
+      //   let number2 = prompt("숫자를 입력하세요.", "");
+      //   document.write(Number(number1) + Number(number2) + "<br>");
+      let number3 = 100;
+      let number4 = 200;
+      let number5 = 0;
+      let number6 = number4 / number5;
+      let string1 = "김은영";
+      let string2 = "";
+      let string3 = null; // 빈값
+      let string4;
+      document.write(String(number3) + String(number4) + "<br>");
+      document.write(Boolean(number3) + "<br>"); // true
+      document.write(Boolean(number5) + "<br>"); // false
+      document.write(Boolean(number6) + "<br>"); // true
+      document.write(Boolean(string1) + "<br>"); // true
+      document.write(Boolean(string2) + "<br>"); // false
+      document.write(Boolean(string3) + "<br>"); // false
+      document.write(string4 + "<br>"); // undefined
+      document.write(Boolean(string4) + "<br>"); // false
+      document.write(Boolean(Number(string1)) + "<br>"); // NaN => false
+    </script>
+  </body>
+</html>

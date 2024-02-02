@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // input 변수에 32 값을 대입하시오.
+      // input에 저장된 값을 2로 나눈 나머지가 0이면 "짝수입니다!"를 출력하시오.
+      // input 값을 2로 나눈 나머지가 1이면 "홀수입니다!"를 출력하시오.
+      let input = 32;
+      if (input % 2 == 0) {
+        document.write("짝수입니다!");
+      }
+      if (input % 2 == 1) {
+        document.write("홀수입니다!");
+      }
+      document.write("<br>");
+
+      //   if else 조건문
+      if (input % 2 == 0) {
+        document.write("짝수입니다!");
+      } else {
+        document.write("홀수입니다!");
+      }
+      document.write("<br>");
+
+      // if else if 조건문
+      // 학생의 점수가 90점 이상이면 "A학점"를, 80점 이상이면 "B학점"를
+      // 70점 이상이면 "C학점"를, 60점 이상이면 "D학점",
+      // 60점 미만이면 "F학점"을 출력하시오.
+      let score = 59;
+      if (score >= 90) {
+        document.write("A학점");
+      } else if (score >= 80) {
+        document.write("B학점");
+      } else if (score >= 70) {
+        document.write("C학점");
+      } else if (score >= 60) {
+        document.write("D학점");
+      } else {
+        document.write("F학점");
+      }
+
+      document.write("<br>");
+
+      // 평균(avg)이 60점 이상이면 "합격", 그렇지 않으면 "불합격"을 출력하시오.
+      // 단, 40점 미만인 과목이 있으면 "과락"을 출력하시오.
+      // 국어(kor) 80점, 수학(math) 80점, 영어(eng) 30점
+      let kor = 80;
+      let math = 40;
+      let eng = 40;
+      let avg = (kor + math + eng) / 3;
+      if (avg >= 60) {
+        if (kor < 40) {
+          document.write("과락");
+        } else if (math < 40) {
+          document.write("과락");
+        } else if (eng < 40) {
+          document.write("과락");
+        } else {
+          document.write("합격");
+        }
+      } else {
+        document.write("불합격");
+      }
+
+      document.write("<br>");
+
+      if (avg >= 60 && kor >= 40 && math >= 40 && eng >= 40) {
+        document.write("합격");
+      } else {
+        if (kor < 40 || math < 40 || eng < 40) {
+          document.write("과락");
+        } else {
+          document.write("불합격");
+        }
+      }
+
+      document.write("<br>");
+      let month = Number(prompt("월을 입력하시오.", ""));
+      if (month >= 3 && month <= 5) {
+        document.write("봄입니다.");
+      } else if (month >= 6 && month <= 8) {
+        document.write("여름입니다.");
+      } else if (month >= 9 && month <= 11) {
+        document.write("가을입니다.");
+      } else if (month == 1 || month == 2 || month == 12) {
+        document.write("겨울입니다.");
+      } else {
+        document.write("잘못 입력하셨습니다.");
+      }
+    </script>
+  </body>
+</html>

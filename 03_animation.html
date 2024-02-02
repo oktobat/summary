@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS animation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 100px;
+      }
+      .box1 {
+        background: red;
+        transform: translate(0px);
+        animation: ani1 3s 1 both;
+      }
+      .box1:hover {
+        animation-play-state: paused;
+      }
+      .box2 {
+        background: green;
+        animation: ani2 3s 1 alternate 1s ease;
+      }
+
+      @keyframes ani1 {
+        0% {
+          background: red;
+        }
+        25% {
+          background: orange;
+        }
+        50% {
+          background: yellow;
+        }
+        100% {
+          background: green;
+          transform: translate(300px);
+        }
+      }
+
+      @keyframes ani2 {
+        0% {
+          transform: translate(0px, 0px);
+        }
+        25% {
+          transform: translate(100px, 0px);
+        }
+        50% {
+          transform: translate(100px, 100px);
+        }
+        75% {
+          transform: translate(0px, 100px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        animation-name : @keyframes 뒤에 있는 이름
+        animation-duration : 진행시간(1s)
+        animation-iteration-count : 반복횟수(1, infinite)
+        animation-direction : 진행방향(normal, reverse, alternate)
+        animation-delay : 대기시간(1s)
+        animation-timing-function : 가속도함수(ease, linear)
+        animation-fill-mode : 애니메이션 종료후 상태(backwards, both)
+        animation-play-state : 애니메이션 멈춤(paused)
+     -->
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+  </body>
+</html>

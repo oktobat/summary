@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS transform 속성</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 100px;
+      }
+      .box1 {
+        border: 3px solid #f00;
+        transition: all 0.5s;
+      }
+      .box1:hover {
+        /* transform: translate(300px, 300px); */
+        /* transform: rotate(45deg); */
+        /* transform: skewX(45deg); */
+        /* transform: scale(0.5); */
+        /* transform: translate(300px) rotate(45deg) skewX(45deg) scale(0.5); */
+        /* transform: translate(100%) rotate(3turn) scale(0.5); */
+        transform: rotate(-45deg);
+        transform-origin: right top;
+      }
+      .box2 {
+        border: 3px solid #00f;
+      }
+    </style>
+  </head>
+  <body>
+    <!--  
+        이동(translate), 회전(rotate), 비틀기(skew), 크기(scale) : 변화가 발생해도 주변에 영향을 미치지 않음
+        x축 이동 => transform : translateX(50px)
+        y축 이동 => transform : translateY(50px)
+        x,y축 이동 => transform : translate(50px, 50px) 
+        x축 회전 => transform : rotateX(90deg)
+        y축 회전 => transform : rotateY(90deg)
+        z축(원점기준) 회전 => transform : rotateZ(45deg)
+        회전의 기준점 설정 => transform-orign : left(right, center) top(bottom, center)
+        x축 비틀기 => transform : skewX(45deg)
+        y축 비틀기 => transform : skewY(45deg)
+        z축 비틀기 => transform : skew(45deg)
+        넓이 변화 => transform : scaleX(1.2)
+        높이 변화 => transform : scaleY(1.2)
+        넓이,높이 변화 => transform : scale(1.2)
+
+    -->
+
+    <div class="box box1">박스1</div>
+    <div class="box box2">박스2</div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="height: 2000px">
+    <div style="width: 2000px; height: 10px"></div>
+    <!-- 
+        window 객체 : alert(), propmt(), open(), close()
+            innerWidth : 창틀제외한 윈도우 넓이
+            outerWidth : 창틀포함
+            scrollY : 세로 스크롤바 위치값
+            scrollX : 가로 스크롤바 위치값
+            window.open("새창에 들어올 문서의 url", "윈도우이름", "창크기, 창위치")
+        screen 객체 속성
+            width : 모니터 해상도 넓이
+            height : 모니터 해상도 높이
+            availWidth 
+            availHeight 
+            colorDepth
+            pixelDepth
+     -->
+
+    <script>
+      document.write(screen.width + "<br>");
+      document.write(screen.availWidth + "<br>");
+      document.write(window.innerWidth + "<br>");
+      document.write(window.outerWidth + "<br>");
+      window.onscroll = function () {
+        console.log(window.scrollY);
+        console.log(window.scrollX);
+      };
+      //   window.open(
+      //     "80_class속성조작.html",
+      //     "",
+      //     "width=300, height=300, top=100, left=100"
+      //   );
+
+      //   location.href = "http://www.naver.com";
+      //   location.reload();
+
+      //   history.forward() : 앞으로 이동
+      //   history.back() : 뒤로 이동
+
+      // navigator.appName : 브라우저의 이름
+      // navigator.appVersion : 브라우저의 버젼
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 인수(argument) : 함수에 전달되는 값으로 호출문에서 사용됨
+      // 매개변수(parameter) : 인수를 받는 변수로 선언문에서 사용됨
+      // return 문 : 선언문에 return 문이 있으면 호출문에서는
+      //             결과를 저장할 변수를 준비해야 함
+      function power(number) {
+        return number * number;
+      }
+      let result = power(2);
+      document.write(result + "<br>");
+
+      result = power(3);
+      document.write(result + "<br>");
+
+      document.write(
+        "최소값~최대값까지의 합을 구하는 함수문을 작성하시오. <br>"
+      );
+
+      let sumresult = sum(10, 20);
+      document.write(sumresult + "<br>");
+
+      function sum(min, max) {
+        let output = 0;
+        for (let i = min; i <= max; i++) {
+          output += i;
+        }
+        return output;
+      }
+
+      sumresult = sum(1, 10);
+      document.write(sumresult + "<br>");
+    </script>
+  </body>
+</html>

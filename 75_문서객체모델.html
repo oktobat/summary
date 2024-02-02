@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Object Model(DOM)</title>
+    <!-- <script>
+      window.onload = function () {
+        let h1 = document.querySelector("h1");
+        let h2 = document.querySelector("h2");
+
+        h1.style.color = "rgb(255,0,0)";
+        h2.style.color = "green";
+      };
+    </script> -->
+  </head>
+  <body>
+    <h1>h1 태그</h1>
+    <h2>h2 태그</h2>
+    <h1>h1 태그</h1>
+    <h2>h2 태그</h2>
+
+    <p id="first">아이디 선택자</p>
+    <p class="second">클래스 선택자</p>
+    <p>클래스 선택자</p>
+    <p>태그 선택자</p>
+    <p>태그 선택자</p>
+
+    <nav id="gnb">
+      <ul>
+        <li>
+          <a href="#">내용1</a>
+          <ul>
+            <li>서브1</li>
+            <li>서브2</li>
+            <li>서브3</li>
+          </ul>
+        </li>
+        <li>
+          내용2
+          <ul>
+            <li>서브1</li>
+            <li>서브2</li>
+            <li>서브3</li>
+          </ul>
+        </li>
+        <li>
+          내용3
+          <ul>
+            <li>서브1</li>
+            <li>서브2</li>
+            <li>서브3</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <script>
+      // id 선택자 : document.getElementById("아이디명")
+      // class 선택자 : document.getElementsByClassName("클래스명")
+      // 태그 선택자 : document.getElementsByTag("태그명")
+
+      //   let first = document.getElementById("first");
+      let first = document.querySelector("#first");
+      first.style.background = "pink";
+
+      //   let second = document.getElementsByClassName("second");
+      let second = document.querySelector(".second");
+      second.style.background = "green";
+
+      // let ptag = document.getElementsByTagName("p");
+      let ptag = document.querySelectorAll("p");
+      ptag[3].style.background = "orange";
+      ptag[4].style.background = "orange";
+
+      // 1개의 문서 객체 선택 메서드 : document.querySelector("태그명, #아이디명, .클래스명")
+      // 여러개의 문서 객체 선택 메서드 : document.querySelectorAll("태그명, .클래스명")
+      let h1 = document.querySelectorAll("h1");
+      let h2 = document.querySelectorAll("h2");
+
+      //   h1[0].style.color = "rgb(255,0,0)";
+      //   h2[0].style.color = "green";
+      //   h1[1].style.color = "blue";
+      //   h2[1].style.color = "orange";
+      //   for (let i in h1) {
+      //     h1[i].style.color = "brown";
+      //     h2[i].style.color = "orange";
+      //   }
+
+      // 유사배열객체에는 for in문을 사용하면 오류가 발생하므로
+      // forEach()를 활용할 것
+      h1.forEach((value) => (value.style.color = "brown"));
+      h2.forEach((value) => (value.style.color = "orange"));
+
+      // parentNode : 선택된 요소의 부모 노드를 선택함
+      // childNodes : 선택된 요소의 자식노드들을 선택함(공백포함, 인덱스번호)
+      // children : 선택된 요소의 자식노드들을 선택함(인덱스번호)
+      // firstChild : 첫 번째 자식 노드를 선택함(공백포함)
+      // firstElementChild : 첫 번째 자식 노드를 선택함
+      // lastChild : 마지막 자식 노드를 선택함(공백포함)
+      // lastElementChild : 마지막 자식 노드를 선택함
+      // nextSibling : 선택된 요소의 다음 형제 노드를 선택함(공백포함)
+      // nextElementSibling : 선택된 요소의 다음 형제 노드를 선택함
+      // previousSibling : 선택된 요소의 이전 형제 노드를 선택함(공백포함)
+      // previousElementSibling : 선택된 요소의 이전 형제 노드를 선택함
+      // 자바스크립트에서는 형제노드 전체를 선택하는 속성은 없음
+      let gnb = document.querySelector("#gnb");
+
+      // let body = document.body;
+      // body.style.background = "orangered";
+      gnb.parentNode.style.background = "yellow";
+      // gnb.childNodes[1].style.background = "red";
+      gnb.children[0].style.border = "10px solid #000";
+      gnb.firstElementChild.firstElementChild.firstElementChild.style.color =
+        "red";
+      gnb.firstElementChild.firstElementChild.lastElementChild.lastElementChild.style.color =
+        "green";
+      gnb.firstElementChild.lastElementChild.lastElementChild.children[1].previousElementSibling.style.color =
+        "pink";
+      gnb.firstElementChild.lastElementChild.lastElementChild.children[1].nextElementSibling.style.color =
+        "pink";
+    </script>
+  </body>
+</html>

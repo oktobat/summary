@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="autoClock"></div>
+
+    <script>
+      let timer = document.querySelector("#autoClock");
+
+      let now = new Date();
+      document.write(now + "<br>");
+
+      // 연도 : getFullYear()
+      document.write(now.getFullYear() + "<br>");
+      // 월 : getMonth()+1
+      document.write(now.getMonth() + 1 + "<br>");
+      // 일 : getDate()
+      document.write(now.getDate() + "<br>");
+      // 요일 : getDay()
+      // 0(일), 1(월), ..... 6(토)
+      document.write(now.getDay() + "<br>");
+
+      // 시간 : getHours()
+      document.write(now.getHours() + "<br>");
+      // 분 : getMinutes()
+      document.write(now.getMinutes() + "<br>");
+      // 초 : getSeconds()
+      document.write(now.getSeconds() + "<br>");
+
+      // setInterval(함수, ms) : ms 간격으로 함수를 반복적으로 실행
+      setInterval(function () {
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth() + 1;
+        let date = today.getDate();
+        let day = today.getDay();
+        switch (day) {
+          case 0:
+            day = "일요일";
+            break;
+          case 1:
+            day = "월요일";
+            break;
+          case 2:
+            day = "화요일";
+            break;
+          case 3:
+            day = "수요일";
+            break;
+          case 4:
+            day = "목요일";
+            break;
+          case 5:
+            day = "금요일";
+            break;
+          case 6:
+            day = "토요일";
+            break;
+        }
+        let hours = today.getHours();
+        let minutes = today.getMinutes();
+        let seconds = today.getSeconds();
+        let autoClock = `${year}년 ${month}월 ${date}일 ${day} ${hours}시 ${minutes}분 ${seconds}초`;
+        timer.textContent = autoClock;
+      }, 1000);
+
+      // 경과한 날수 구하기
+      let birthday = new Date("1990-1-1");
+
+      // getTime() : 1970. 1. 1 부터 경과한 ms를 구하는 메서드
+      // 1970. 1. 1부터 오늘까지 경과한 ms를 구함
+      let aDate = now.getTime();
+      // 1970. 1. 1 부터 내 생일까지 경과한 ms를 구함
+      let bDate = birthday.getTime();
+      let survival = (aDate - bDate) / 1000 / 60 / 60 / 24 / 365;
+      document.write(survival + "년 <br>");
+    </script>
+  </body>
+</html>

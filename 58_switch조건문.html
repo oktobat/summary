@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let kor = 80;
+      let math = 80;
+      let eng = 80;
+      let avg = (kor + math + eng) / 3;
+      switch (avg) {
+        case 90:
+          document.write("A학점");
+          break;
+        case 80:
+          document.write("B학점");
+          break;
+        case 70:
+          document.write("C학점");
+          break;
+        case 60:
+          document.write("D학점");
+          break;
+        default:
+          document.write("F학점");
+      }
+
+      // input 변수에 32 값을 대입하시오.
+      // input에 저장된 값을 2로 나눈 나머지가 0이면 "짝수입니다!"를 출력하시오.
+      // input 값을 2로 나눈 나머지가 1이면 "홀수입니다!"를 출력하시오.
+      let input = 32;
+      switch (input % 2) {
+        case 0:
+          document.write("짝수입니다!");
+          break;
+        case 1:
+          document.write("홀수입니다!");
+          break;
+      }
+
+      document.write("<br>");
+      // prompt창에 12월, 1월, 2월을 입력하면 "겨울입니다."
+      // 3월, 4월, 5월은 "봄입니다."
+      // 6월, 7월, 8월은 "여름입니다."
+      // 9월, 10월, 11월은 "가을입니다."를 출력하시오.
+      // 이외의 월을 입력하면 "대체 어떤 행성에 살고 계신가요?"를 출력
+      // 월은 month에 저장하시오.
+      let month = prompt("월을 입력하시오.", "");
+      switch (month) {
+        case "12월":
+        case "1월":
+        case "2월":
+          document.write("겨울입니다.");
+          break;
+        case "3월":
+        case "4월":
+        case "5월":
+          document.write("봄입니다.");
+          break;
+        case "6월":
+        case "7월":
+        case "8월":
+          document.write("여름입니다.");
+          break;
+        case "9월":
+        case "10월":
+        case "11월":
+          document.write("가을입니다.");
+          break;
+        default:
+          document.write("대체 어떤 행성에 살고 계신가요?");
+      }
+    </script>
+  </body>
+</html>

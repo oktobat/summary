@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .font {
+        font-size: 30px;
+        color: red;
+      }
+      .border {
+        border: 1px solid #000;
+        border-radius: 10px;
+      }
+      .bgcolor {
+        background: yellow;
+      }
+    </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <ul id="menu">
+      <li>메뉴1</li>
+      <li>메뉴2</li>
+      <li>메뉴3</li>
+      <li>메뉴4</li>
+    </ul>
+    <script>
+      // class 추가 : 객체.classList.add("class명")
+      // class 제거 : 객체.classList.remove("class명")
+      // class 토글 : 객체.classList.toggle("class명")
+      // class 유무 판별 : 객체.classList.contains("class명")
+      let elLi = document.querySelectorAll("#menu > li");
+      elLi.forEach(function (value, index) {
+        // document.write(`${value}, ${index} <br>`);
+        value.classList.add("font");
+        value.classList.add("border");
+      });
+
+      elLi.forEach(function (value, index) {
+        value.onclick = function () {
+          // this.classList.toggle("font")
+          if (this.classList.contains("font")) {
+            this.classList.remove("font");
+            this.classList.add("border");
+          } else {
+            this.classList.add("font");
+            this.classList.remove("border");
+          }
+        };
+      });
+
+      $("#menu > li").on("click", function () {
+        $(this).addClass("bgcolor").siblings().removeClass("bgcolor");
+      });
+    </script>
+  </body>
+</html>

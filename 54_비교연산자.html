@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 비교연산자 : >, >=, <, <=, ==(===), !=(!==)
+      // 비교연산의 결과는 true 또는 false 임
+      let number1 = 10;
+      let number2 = 20;
+      let number3 = "10";
+      let result;
+      result = number1 > number2;
+      document.write(result + "<br>"); // false
+      result = number1 >= number2;
+      document.write(result + "<br>"); // fasle
+      result = number1 < number2;
+      document.write(result + "<br>"); // true
+      result = number1 <= number2;
+      document.write(result + "<br>"); // true
+      result = number1 == number2;
+      document.write(result + "<br>"); // false
+      result = number1 != number2;
+      document.write(result + "<br>"); // true
+      result = number1 == number3;
+      document.write(result + "<br>"); // true
+      result = number1 === number3;
+      document.write(result + "<br>"); // false
+      result = number1 != number3;
+      document.write(result + "<br>"); // false
+      result = number1 !== number3;
+      document.write(result + "<br>"); // true
+
+      document.write(typeof number3 + "<br>"); // string
+      document.write(typeof number1 + "<br>"); // number
+      document.write(typeof result + "<br>"); // boolean
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .parent {
+        background: pink;
+        height: 400px;
+        width: 600px;
+        /* 
+            자식들을 한줄로 정렬하기 위해 부모한테 사용하는 속성
+            (caniuse.com에서 브라우저 호환성 확인해볼것)
+            display:flex;
+            가로정렬 justify-content : flex-start(왼쪽끝)
+            세로정렬 align-items : stretch(부모높이로 맞춰짐)
+            자식들을 두줄 이상 정렬 : flex-wrap : wrap(기본값 nowrap);
+         */
+        display: flex;
+        justify-content: left;
+        /* 
+          flex-wrap:wrap으로 여러줄 정렬일때는 세로정렬을
+          align-content 속성을 사용하고
+          flex-wrap:nowarp(기본값)으로 한줄 정렬일때 세로정렬은
+          align-items 속성을 사용할 것
+        */
+        align-content: space-between;
+        /* 
+          flex 정렬의 기본방향은 수평방향(row)
+        */
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* 
+          flex-direction과 flex-wrap을 flex-flow 속성으로 합칠 수 있음
+          flex-flow : row wrap;
+          flex-flow : column nowrap;
+        */
+      }
+      .child {
+        padding: 30px 0;
+        border: 1px solid #000;
+        /* 
+           flex-grow : 1(부모의 빈공간을 자식이 확장하여 채움, 기본값 0) 
+           flex-shrink : 1(부모의 넘치는 공간을 자식이 축소되어 채움, 기본값 1)
+           flex-basis : 0(자식의 넓이, 기본값 auto)
+        */
+        flex: 0 1 25%; /*  flex:1 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child child1">자식1</div>
+      <div class="child child2">자식2</div>
+      <div class="child child3">자식3</div>
+      <div class="child child4">자식4</div>
+      <div class="child child5">자식5</div>
+      <div class="child child6">자식6</div>
+    </div>
+  </body>
+</html>

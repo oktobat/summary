@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상수와 변수</title>
+    <script>
+      // 자료형 : 문자값(string), 숫자값(number), 논리값(boolean)
+
+      // 변수는 중간에 값을 변경할 수 있음
+      // 변수 선언은 let 키워드를 사용함
+      // 생명주기는 블록범위
+      let name = "김은영";
+      let age = 90;
+      let result = true;
+      document.write(name + "<br>");
+      document.write(age + "<br>");
+      document.write(result + "<br>");
+      name = "홍길동";
+      age = 20;
+      result = false;
+      //   console.log(name);
+      //   console.log(age);
+      //   console.log(result);
+      document.write(name + "<br>");
+      document.write(age + "<br>");
+      document.write(result + "<br>");
+      {
+        let name = "장나라";
+        document.write(name + "<br>");
+      }
+      document.write(name + "<br>");
+
+      // 상수는 중간에 값을 변경할 수 있음
+      // 상수 선언은 const 키워드를 사용함
+      // 생명주기는 블록범위
+      const pi = 3.14;
+      document.write(pi + "<br>");
+      {
+        const pi = 3.15;
+        const kim = "kim eun young";
+        document.write(kim + "<br>");
+      }
+      //   document.write(kim + "<br>");
+
+      // 문자선택 연산자
+      let str = "안녕하세요";
+      document.write(str[0] + "<br>");
+
+      // 문자열 연결 연산자 +는 문자열들을 연결함
+      document.write(str[0] + str[4] + "<br>");
+
+      //   이스케이프 문자(\)
+      //   alert(
+      //     '우리나라는 \t "대한민국"입니다.\n 대한민국 국민인게 \\ 자랑스럽습니다.'
+      //   );
+
+      // 문자열 길이 구하기 : length 속성
+      document.write(str.length);
+    </script>
+  </head>
+  <body></body>
+</html>

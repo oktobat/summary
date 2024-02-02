@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul li strong {
+        color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Math.min.apply(null, 배열명) : 배열 안에서 최소값 구함
+      // Math.max.apply(null, 배열명) : 배열 안에서 최대값 구함
+      let nums = [30, 10, 50, 200, 100];
+      let result;
+      result = Math.max.apply(null, nums);
+      document.write(result + "<br>");
+
+      let max = -Infinity;
+      for (let i in nums) {
+        if (max < nums[i]) {
+          max = nums[i];
+        }
+      }
+      document.write(max + "<br>");
+
+      let fruit = ["Banna", "Orange", "Apple", "Mango", "Lemon"];
+      // 배열.toString() : 배열 값을 콤마로 구분된 문자열로 반환
+      // document.write() 에서는 동일한 모습으로 출력되고
+      // console.log() 에서는 다른 모습으로 출력됨
+      console.log(fruit);
+      console.log(fruit.toString());
+
+      // 배열.join() : 배열값을 제시된 문자로 연결하여 하나의 문자열을 만듬
+      // Banna - Orange - Apple - Mango - Lemon
+      document.write(fruit.join(" - ") + "<br>");
+      document.write(fruit + "<br>");
+
+      // 배열1.concat(배열2) : 두 배열을 결합함
+      // 30,10,50,200,100,Banna,Orange,Apple,Mango,Lemon
+      document.write(nums.concat(fruit) + "<br>");
+      document.write(nums + "<br>");
+      document.write(fruit + "<br>");
+
+      // 배열.push() : 배열의 맨 마지막에 요소를 추가함
+      fruit.push("Pineapple");
+      document.write(fruit + "<br>");
+      fruit.push("참외");
+      document.write(fruit + "<br>");
+
+      // 배열.unshift() : 배열의 첫번째 요소를 추가함
+      fruit.unshift("딸기");
+      document.write(fruit + "<br>");
+
+      // 배열.pop() : 배열의 마지막 요소를 삭제
+      fruit.pop();
+      document.write(fruit + "<br>");
+
+      // 배열.shift() : 배열의 첫번째 요소를 삭제
+      fruit.shift();
+      document.write(fruit + "<br>");
+
+      // **** 배열.splice(위치번호, 삭제갯수, 추가값) : 배열의 지정된 부분의 요소를 추가, 삭제, 수정할 수 있음
+      let alphabet = ["a", "b", "c", "f", "d"];
+
+      // 3번 위치에 d를 추가하시오.
+      alphabet.splice(3, 0, "d");
+      document.write(alphabet + "<br>");
+
+      // 4번 위치에 e를 추가하시오.
+      alphabet.splice(4, 0, "e");
+      document.write(alphabet + "<br>");
+
+      // a, b, c를 삭제하고 x, y, z 를 추가하시오.
+      alphabet.splice(0, 3, "x", "y", "z");
+      document.write(alphabet + "<br>");
+
+      // x, y, z를 삭제하시오.
+      alphabet.splice(0, 3);
+      document.write(alphabet + "<br>");
+
+      // 'e'를 찾아서 'E'로 수정하시오.
+      // 배열.indexOf('찾는값') : 찾는 값의 index 번호를 알려줌
+      // 찾는 값이 중복될때는 첫번째 data의 index 번호를 알려줌
+      // 찾는 값이 없을때는 -1 값을 알려줌
+      alphabet.splice(alphabet.indexOf("e"), 1, "E");
+      document.write(alphabet + "<br>");
+
+      // 'd'를 찾아서 'D'로 수정하시오.
+      alphabet.splice(alphabet.indexOf("d"), 1, "D");
+      document.write(alphabet + "<br>");
+
+      // 'a'를 찾아서 index 번호를 출력하시오.
+      document.write(alphabet.indexOf("a") + "<br>");
+
+      // 'f'를 찾아서 삭제하시오.
+      alphabet.splice(alphabet.indexOf("f"), 1);
+      document.write(alphabet + "<br>");
+
+      // ***** 배열.slice(시작인덱스번호, 끝인덱스번호+1) : 배열을 분리함
+      // 배열.slice(시작인덱스번호) : 시작인덱스번호부터 마지막까지 분리
+      // let arr1 = fruit.slice(2,4);   // Apple,Mango
+      let arr1 = fruit.slice(2); // Apple,Mango,Lemon,Pineapple
+      document.write(arr1 + "<br>");
+      document.write(fruit + "<br>"); // 기존배열은 그대로 유지됨
+
+      // 배열.reverse() : 배열을 역순으로 정렬함
+      document.write(fruit.reverse() + "<br>");
+      document.write(fruit + "<br>"); // 기존배열이 변경됨
+
+      // 배열.sort(함수명) : 배열 요소들을 내림차순 또는 오름차순으로 정렬
+      // 문자열 데이터 소트하는 함수
+      function textSort(a, b) {
+        if (a > b) return -1;
+        if (a < b) return 1;
+      }
+      // let sortArray = fruit.sort();  // 문자열 오름차순
+      // let sortArray = fruit.sort(textSort);  // 문자열 내림차순
+
+      // 숫자 데이터 소트하는 함수
+      function numSort(a, b) {
+        return b - a; // 오름차순(a-b), 내림차순(b-a)
+      }
+      let sortArray = nums.sort(numSort);
+      document.write(sortArray + "<br>");
+      document.write(fruit + "<br>");
+
+      // 기존 배열도 변경되는 메서드 : push, pop, shift, unshift, splice, reverse, sort
+      // 기존 배열이 변경되지 않는 메서드 : slice, join, concat
+
+      let students = ["김은영", "장나라", "홍길동"];
+      // for in문을 사용해서 리스트 구조로 다음처럼 출력하시오.
+      // ㆍ김은영님 환영합니다.
+      // ㆍ장나라님 환영합니다.
+      // ㆍ홍길동님 환영합니다.
+      let list = "<ul>";
+      // for (let i in students) {
+      //   list += `<li><strong>${students[i]}</strong>님 환영합니다.`;
+      // }
+      // list += "</ul>";
+      // document.write(list);
+
+      // 배열.forEach(함수) : 배열의 요소를 하나씩 뽑아 반복을 돌림
+      students.forEach(function (value, index) {
+        list += `<li>${
+          index + 1
+        }. <strong>${value}</strong>님 환영합니다.</li>`;
+      });
+      list += "</ul>";
+      document.write(list);
+
+      // 콜백함수 : 함수나 메서드의 인수로 사용되는 함수
+      // 배열.map(함수) : 콜백함수에서 리턴하는 것을 기반으로 새로운 배열을 생성
+      document.write(nums + "<br>");
+      let newnums = nums.map(function (value, index) {
+        value = value + 1;
+        return value;
+      });
+      document.write(newnums + "<br>");
+      document.write(nums + "<br>");
+
+      // 배열.filter(함수) : 콜백함수에서 true를 리턴하는 데이터만 추출하여 새로운 배열을 생성함
+      // 아래 배열에서 문자 데이터만 추출하시오.
+      let mixdata = ["javaScript", 20, 30, "jQuery"];
+      let newdata = mixdata.filter(function (value, index) {
+        return typeof value == "string";
+      });
+      document.write(newdata + "<br>");
+
+      // filter()를 활용하여 number 배열에서
+      // 홀수만 추출하여 새로운 배열을 생성하시오.
+      let number = [10, 11, 12, 13, 14, 15];
+      let newnumber = number.filter(function (value, index) {
+        return value % 2 == 1;
+      });
+      document.write(newnumber + "<br>");
+
+      // filter()와 indexOf()를 활용하여 배열에서 중복데이터 제거하기
+      let dupleData = ["서울", "대전", "서울", "대구", "대전"];
+      let removeDupleData = dupleData.filter(function (value, index) {
+        return dupleData.indexOf(value) == index;
+        // 두번째 '서울' : indexOf('서울') == index
+        //                             0  == 2
+        //                              false
+      });
+      document.write(removeDupleData + "<br>");
+    </script>
+  </body>
+</html>

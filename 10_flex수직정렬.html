@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .parent {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        background: pink;
+        display: flex;
+        /* flex정렬의 방향
+            flex-direction : row(기본값, 수평정렬)
+            flex-direction : column(수직정렬)
+        */
+        flex-direction: column;
+        /* 
+           flex-direction이 column일때 justify-content는 세로정렬
+           justify-content : flex-start(기본값, top정렬)
+        */
+        justify-content: space-around;
+        /* 
+            align-items는 가로정렬
+            align-items : stretch(기본값, 부모넓이에 맞춰짐)
+        */
+        align-items: flex-start;
+        /* 
+            방향이 수직(column)일 때 flex-wrap:wrap은 
+            여러 칼럼으로 정렬함
+        */
+        flex-wrap: wrap;
+      }
+      .child {
+        border: 1px solid #f00;
+        /* 
+           수직정렬일때 아래의 50px는 자식들의 높이값임 
+           flex-grow 값이 1이면 50px은 무시되고 자식들은 동일한 높이로
+           부모높이의 빈 공간을 확장하여 채우게 됨
+        */
+        flex: 0 1 33.33%;
+        /* 
+            부모한테 display:flex를 적용하면 
+            자식의 기본 넓이는 auto임
+        */
+        width: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child child1">자식1</div>
+      <div class="child child2">자식2</div>
+      <div class="child child3">자식3</div>
+      <div class="child child4">자식4</div>
+      <div class="child child5">자식5</div>
+      <div class="child child6">자식6</div>
+    </div>
+  </body>
+</html>

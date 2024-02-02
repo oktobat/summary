@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .sprite {
+        background-image: url(./image/sp_main_bf79fd.png);
+      }
+      .blind {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        text-indent: -9999px;
+      }
+      h1 a {
+        display: block;
+        width: 443px;
+        height: 105px;
+        background-position: 0 -316px;
+      }
+      .button {
+        width: 267px;
+        height: 96px;
+        background-position: -543px -112px;
+        transition: all 0.4s;
+      }
+      .button:hover {
+        background-position: -543px -221px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <a href="#" class="sprite"><span class="blind">네이버</span></a>
+    </h1>
+
+    <div class="button sprite">
+      <span class="blind">다크모드로 보기</span>
+    </div>
+  </body>
+</html>

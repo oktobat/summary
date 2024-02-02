@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+      }
+      table {
+        width: 500px;
+        margin: 0 auto;
+        border-collapse: collapse;
+      }
+      table th {
+        padding: 5px 0;
+        background: #f3f3f3;
+      }
+      table td {
+        text-align: center;
+        padding: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // 배열선언
+      // let 배열명 = [자료1, 자료2, .....]
+      // 배열의 갯수 카운트 : 배열명.length
+      let array = [52, 273, "아침밥", "점심밥", true, false];
+      document.write(array.length + "<br>");
+
+      array[3] = "저녁밥";
+
+      for (let i = 0; i < array.length; i++) {
+        document.write(i + 1 + ". " + array[i] + "<br>");
+      }
+
+      //                성적표
+      // 이름       국어    수학    영어    평균
+      // 김은영     80      70      60      70
+      // 홍길동     90      90      50      83
+      let student = ["김은영", "홍길동", "장나라", "원빈", "윤은혜"];
+      let kor = [80, 90, 80, 70, 50];
+      let math = [70, 90, 80, 60, 60];
+      let eng = [60, 50, 90, 100, 70];
+
+      let data = "<h1>성적표</h1>";
+      data += "<table border='1'>";
+      data += "<tr>";
+      data += "<th>이름</th>";
+      data += "<th>국어</th>";
+      data += "<th>수학</th>";
+      data += "<th>영어</th>";
+      data += "<th>평균</th>";
+      data += "</tr>";
+
+      let avg = 0;
+      for (let i in student) {
+        avg = Math.round((kor[i] + math[i] + eng[i]) / 3);
+        data += "<tr>";
+        data += `<td>${student[i]}</td>`;
+        data += `<td>${kor[i]}</td>`;
+        data += `<td>${math[i]}</td>`;
+        data += `<td>${eng[i]}</td>`;
+        data += `<td>${avg}</td>`;
+        data += "</tr>";
+      }
+      data += "</table>";
+      document.write(data);
+    </script>
+  </body>
+</html>

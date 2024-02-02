@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+      }
+      table {
+        width: 500px;
+        margin: 0 auto;
+        border-collapse: collapse;
+      }
+      table th {
+        padding: 5px 0;
+        background: #f3f3f3;
+      }
+      table td {
+        text-align: center;
+        padding: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // 객체는 0개 이상의 요소 또는 속성(property)으로 구성된 집합
+      // property는 키(key)와 값(value)의 쌍으로 구성됨
+      // 키의 값으로 함수도 올 수 있으며 이런 property를 method라고 함
+      // 객체값 추출 : 객체명.키이름 = 객체명['키이름']
+      // 키이름이 변수에 저장된 경우 : 객체명[변수명](O), 객체명.변수명(X)
+
+      // 예) "사람" 객체 생성하기
+      //  let person = {
+      //       name : '김은영',
+      //       height : 160,
+      //       walking : function(){ return 10000 }   // 메서드
+      //  }
+
+      let students = [
+        {
+          name: "김은영",
+          kor: 80,
+          math: 70,
+          eng: 60,
+          avg: function () {
+            return Math.round((this.kor + this.math + this.eng) / 3);
+          },
+        },
+        {
+          name: "홍길동",
+          kor: 90,
+          math: 90,
+          eng: 50,
+          avg: function () {
+            return Math.round((this.kor + this.math + this.eng) / 3);
+          },
+        },
+        {
+          name: "장나라",
+          kor: 80,
+          math: 80,
+          eng: 90,
+          avg: function () {
+            return Math.round((this.kor + this.math + this.eng) / 3);
+          },
+        },
+        {
+          name: "원빈",
+          kor: 70,
+          math: 60,
+          eng: 100,
+          avg: function () {
+            return Math.round((this.kor + this.math + this.eng) / 3);
+          },
+        },
+        {
+          name: "윤은혜",
+          kor: 50,
+          math: 60,
+          eng: 70,
+          avg: function () {
+            return Math.round((this.kor + this.math + this.eng) / 3);
+          },
+        },
+      ];
+
+      let data = "<h1>성적표</h1>";
+      data += "<table border='1'>";
+      data += "<tr>";
+      data += "<th>이름</th>";
+      data += "<th>국어</th>";
+      data += "<th>수학</th>";
+      data += "<th>영어</th>";
+      data += "<th>평균</th>";
+      data += "</tr>";
+      let avg = 0;
+      for (let i in students) {
+        data += "<tr>";
+        data += `<td>${students[i]["name"]}</td>`;
+        data += `<td>${students[i].kor}</td>`;
+        data += `<td>${students[i].math}</td>`;
+        data += `<td>${students[i].eng}</td>`;
+        data += `<td>${students[i].avg()}</td>`;
+        data += "<tr>";
+      }
+      data += "</table>";
+      document.write(data);
+    </script>
+  </body>
+</html>

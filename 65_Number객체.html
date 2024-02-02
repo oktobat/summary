@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let number = new Number(273);  // 객체자료형
+      let number = 273.5210332; // 기본자료형은 자동으로 객체자료형으로 변환됨
+
+      // 실수.toFixed(소숫점이하 자릿수) : 소숫점 이하 자릿수만큼 출력
+      document.write(number.toFixed(1) + "<br>"); // 273.5
+      document.write(number.toFixed(4) + "<br>"); // 273.5210
+
+      // parseInt(데이터) : 정수만 출력
+      // 데이터 : "275점", 275.5210
+      // 출력 : 275(정수)
+      let score = parseInt(prompt("점수를 입력하세요.", ""));
+      document.write(score + "<br>");
+    </script>
+  </body>
+</html>

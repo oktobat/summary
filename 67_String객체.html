@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let string = "abcdefga";
+
+      // charAt(index번호) : index번호에 해당하는 문자값 출력
+      document.write(string.charAt(3) + "<br>"); // d
+
+      // charCodeAt(index번호) : index번호에 해당하는 문자의 유니코드 번호 출력
+      document.write(string.charCodeAt(3) + "<br>");
+
+      // concat(문자열) : 입력한 문자열을 연결해서 리턴함
+      // 기존 문자열에 추가되는 것이 아님에 주의
+      document.write(string.concat("hij") + "<br>");
+      document.write(string + "<br>");
+
+      // indexOf('찾는문자열') : 앞에서부터 첫번째로 찾은 문자열의 index번호를 리턴
+      // 찾는 문자열이 없으면 -1 값
+      // 찾는 문자열이 중복되면 첫번째로 찾아지는 index번호를 리턴
+      document.write(string.indexOf("j") + "<br>"); // -1
+      document.write(string.indexOf("a") + "<br>"); // 0
+
+      // lastIndexOf('찾는문자열') : 뒤에서부터 첫번째로 찾은 문자열의 index번호를 리턴
+      document.write(string.lastIndexOf("a") + "<br>"); // 7
+
+      // replace('찾는문자열', '바꿀문자열') : 첫번째로 찾은 문자열을 바꿀문자열로 변경함
+      // 기존문자열은 그대로 유지됨
+      document.write(string.replace("a", "A") + "<br>"); // Abcdefga
+      document.write(string + "<br>");
+
+      // slice(시작인덱스, 끝인덱스) : 시작인덱스~끝인덱스 이전까지 문자열 출력
+      document.write(string.slice(3, 5) + "<br>"); // d,e
+
+      // split('구분문자') : 구분문자를 기준으로 문자열이 분리돼서 배열로 저장됨
+      document.write(string + "<br>");
+      let str = string.split("d");
+      document.write(str[0] + "<br>");
+      document.write(str[1] + "<br>");
+
+      // substring(시작인덱스, 끝인덱스) : 시작인덱스~끝인덱스 이전까지 문자열 출력
+      // slice(시작인덱스, 끝인덱스)와 비슷함.
+      document.write(string.substring(0, 3) + "<br>");
+
+      // substr(시작인덱스, 글자수) : 시작인덱스부터 글자수만큼 문자열 출력
+      document.write(string.substr(3, 3) + "<br>"); // def
+
+      // toLowerCase() : 소문자로 변환해서 출력
+      // toUpperCase() : 대문자로 변환해서 출력
+      // 기존문자열은 그대로 유지됨
+      document.write(string.toUpperCase() + "<br>");
+      document.write(string + "<br>");
+    </script>
+  </body>
+</html>

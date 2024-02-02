@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 구하고자 하는 값의 조건이 무엇인지 정확히 모를 경우에 for문 대신 사용
+      // 제어변수는 while문 바깥에서 선언함
+      // while (조건) {
+      //      조건이 true일때 반복 실행, false이면 while문 벗어남
+      //      제어변수를 증감하는 코드가 있어야 함
+      // }
+
+      document.write("1~10까지 출력하시오. <br>");
+      let i = 1;
+      while (i <= 10) {
+        document.write(i + "<br>");
+        i++;
+      }
+
+      document.write("1~10까지 수 중에서 짝수만 출력하시오. <br>");
+      let j = 0;
+      while (true) {
+        j++;
+        if (j > 10) {
+          break;
+        }
+        if (j % 2 == 0) {
+          document.write(j + "<br>");
+        }
+      }
+
+      // 조건에 상관없이 무조건 처음 한번은 실행해주는 do ~ while문
+      document.write("1~5까지 출력하시오. <br>");
+      let k = 1;
+      do {
+        document.write(k + "<br>");
+        k++;
+      } while (k < 1);
+    </script>
+  </body>
+</html>

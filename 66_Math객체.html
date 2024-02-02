@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let number = 273.5715;
+      // Math.round(실수) : 소숫점이하 1의 자리에서 반올림
+      // Math.ceil(실수) : 소숫점이하 1의 자리에서 올림
+      // Math.floor(실수) : 소숫점이하 1의 자리에서 버림
+      document.write(Math.round(number) + "<br>"); // 274
+      document.write(Math.ceil(number) + "<br>"); // 274
+      document.write(Math.floor(number) + "<br>"); // 273
+
+      // 소숫점 이하 둘째 자리에서 반올림, 올림, 버림
+      document.write(Math.round(number * 10) / 10 + "<br>"); // 273.6
+      document.write(Math.ceil(number * 10) / 10 + "<br>"); // 273.6
+      document.write(Math.floor(number * 10) / 10 + "<br>"); // 273.5
+
+      // Math.max(숫자1, 숫자2, ...) : 값중에 최대값
+      // Math.min(숫자1, 숫자2, ...) : 값중에 최소값
+      document.write(Math.max(10, 30, 50) + "<br>"); // 50
+      document.write(Math.min(10, 30, 50) + "<br>"); // 10
+
+      // Math.abs(음수) : 절대값
+      document.write(Math.abs(-30) + "<br>"); // 30
+
+      // Math.random() : 난수 생성. 0~1 사이의 난수 발생
+      document.write(Math.random() + "<br>");
+
+      // 0~2까지의 난수 필요 : 0, 1, 2
+      let result = Math.floor(Math.random() * 3);
+      document.write(result + "<br>");
+
+      // 1~3까지의 난수 필요 : 1, 2, 3
+      // Math.floor((Math.random()*(최대값+1-최소값)+최소값))
+      result = Math.floor(Math.random() * (4 - 1) + 1);
+      document.write(result + "<br>");
+
+      // 120~122까지의 난수 필요 : 120, 121, 122
+      result = Math.floor(Math.random() * (123 - 120) + 120);
+      document.write(result + "<br>");
+    </script>
+  </body>
+</html>

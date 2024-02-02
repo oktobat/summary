@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 일반함수
+      function power1() {
+        document.write("나는 일반함수야 <br>");
+      }
+      power1();
+
+      // 화살표 함수는 익명함수 형태만 가능
+      // 실행문이 하나일때는 { } 생략 가능
+      // 하나인 실행문이 return문일때 return도 생략 가능
+      // 매개변수가 하나일때만 ( ) 생략 가능
+      // document.write(power2(2)); 호이스팅 안됨
+      let power2 = (number) => number * number;
+      document.write(power2(2));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // parseInt() : 문자열을 정수로 변환
+      // parseFloat() : 문자열을 실수로 변환
+      // setInterval(함수문, 시간) : 정해진 시간간격으로 함수문을 반복해서 실행
+      // clearInterval(setInterval을 저장한 변수명) : setInterval()을 정지시키는 함수
+      // setTimeout(함수문, 시간) : 정해진 시간 후에 딱 한번만 함수문을 실행
+      document.write(parseInt("50점") + "<br>"); // 50
+      document.write(parseInt("50.8918") + "<br>"); // 50
+      document.write(parseFloat("50.8918") + "<br>"); // 50.8918
+
+      let number = 0;
+      let add = setInterval(function () {
+        number++;
+        document.write(number + "<br>");
+        if (number == 10) {
+          clearInterval(add);
+        }
+      }, 1000);
+
+      setTimeout(function () {
+        document.write("나는 setTimeout함수야 <br>");
+      }, 5000);
+    </script>
+  </body>
+</html>

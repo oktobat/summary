@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // (조건) ? 참일때 실행문 : 거짓일때 실행문;
+      let result = false;
+      result ? document.write("참이네요.") : document.write("거짓이네요.");
+
+      document.write("<br>");
+      let test;
+      test = 1 - 1 ? "참이네요." : "거짓이네요.";
+      document.write(test);
+
+      document.write("<br>");
+      test = 2 - 1 ? "참이네요." : "거짓이네요.";
+      document.write(test);
+
+      document.write("<br>");
+      test = "" ? "참이네요." : "거짓이네요.";
+      document.write(test);
+
+      document.write("<br>");
+      test = "김은영" ? "참이네요." : "거짓이네요.";
+      document.write(test);
+
+      document.write("<br>");
+      // 참인 경우만 판단
+      test = true && "참";
+      document.write(test);
+
+      document.write("<br>");
+      // 거짓인 경우만 판단
+      test = false || "거짓";
+      document.write(test);
+
+      document.write("<br>");
+
+      let score = 59;
+      test =
+        score >= 90
+          ? "A학점"
+          : score >= 80
+          ? "B학점"
+          : score >= 70
+          ? "C학점"
+          : score >= 60
+          ? "D학점"
+          : "F학점";
+      document.write(test);
+
+      document.write("<br>");
+
+      // temp 변수에 초기값이 저장됐으면 그 값을 출력하고,
+      // 그렇지 않으면 "초기화_1"을 출력하시오.
+      let temp;
+      temp = typeof temp != "undefined" ? temp : "초기화_1";
+      document.write(temp);
+    </script>
+  </body>
+</html>

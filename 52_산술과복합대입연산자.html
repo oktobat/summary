@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>산술연산자</title>
+  </head>
+  <body>
+    <script>
+      let number1 = 10;
+      let number2 = 20;
+      document.write(number1 + number2 + "<br>"); // 덧셈 : 30
+      document.write(number1 - number2 + "<br>"); // 뺄셈 : -10
+      document.write(number1 * number2 + "<br>"); // 곱셈 : 200
+      document.write(number1 / number2 + "<br>"); // 나눗셈 : 0.5
+      document.write((number1 % number2) + "<br>"); // 나머지 : 10
+
+      // 산술연산자 우선순위
+      // (*, /, %) > (+, -)
+      let result =
+        number1 + number2 - ((number1 % number2) * number1) / number2;
+      // 25
+      document.write(result + "<br>");
+      document.write(number1 + "10" + number2 + "<br>");
+      document.write(number1 + number2 + "10" + number1 + "<br>");
+
+      // 복합대입 연산자 : +=, -=, *=, /=, %=
+      number1 += 1; // number1 = number1 + 1;
+      document.write(number1 + "<br>"); // 결과 11
+      number1 -= 2; // number1 = number1 - 2;
+      document.write(number1 + "<br>"); // 결과 9
+      number1 *= 3; // number1 = number1 * 3;
+      document.write(number1 + "<br>"); // 결과 27
+      number1 /= 4; // number1 = number1 / 4;
+      document.write(number1 + "<br>"); // 결과 6.75
+      number1 %= 5; // number1 = number1 % 5;
+      document.write(number1 + "<br>"); // 결과 1.75
+
+      let list = "<ul>";
+      list += "<li>리스트1</li>";
+      list += "<li>리스트2</li>";
+      list += "<li>리스트3</li>";
+      list += "</ul>";
+      // list = "<ul><li>리스트1</li><li>리스트2</li><li>리스트3</li></ul>"
+      document.write(list);
+    </script>
+  </body>
+</html>
