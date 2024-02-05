@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jQuery는 javaScript Library 임</title>
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script>
-        
-    // jQuery.com에서 jQuery 핵심파일 다운로드(1.x버젼)
-    // 반드시 <head> 구역에 jQuery 핵심파일을 다른 js파일보다 맨 위에 연결할 것(css보다는 아래쪽에)
-    // <body> 위에 script를 연결할 때는 코드를 아래 함수문 안에 작성할 것
-    // $(document).ready(function(){  여기에 코드 작성  })
-    // $(function(){  여기에 코드 작성  })
-    // <body> 맨 아래에서 연결할 때는 필요없음
+      // jQuery.com 또는 cdnjs.com 에서 jQuery 핵심파일 다운로드(1.x버젼)
+      // 반드시 <head> 구역에 jQuery 핵심파일을 다른 js파일보다 맨 위에 연결할 것(css보다는 아래쪽에)
+      // <body> 위에 script를 연결할 때는 코드를 아래 함수문 안에 작성할 것
+      // $(document).ready(function(){  여기에 코드 작성  })
+      // $(function(){  여기에 코드 작성  })
+      // <body> 맨 아래에서 연결할 때는 필요없음
 
-        $(function(){
+      //   $(document).ready(function () {
+      //     $("body").css({
+      //       background: "red",
+      //       fontSize: "30px",
+      //     });
+      //   });
 
-            $('body').css({
-                background:'red',
-                color:'blue'
-            })
+      //   $(function () {
+      //     $("body").css({
+      //       background: "red",
+      //       fontSize: "30px",
+      //     });
+      //   });
 
-        })
-
+      //   window.onload = function () {
+      //     let body = document.body;
+      //     body.style.background = "red";
+      //     body.style.fontSize = "30px";
+      //   };
     </script>
-
-</head>
-<body>
+  </head>
+  <body>
     김은영
 
-    
-
-</body>
+    <script>
+      $("body").css({
+        background: "red",
+        fontSize: "30px",
+      });
+    </script>
+  </body>
 </html>
