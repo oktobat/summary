@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <!-- 
+        $('선택자').stop().slideDown(시간, 콜백함수) : 시간생략가능(400ms), 콜백함수 생략가능, display:block 효과
+        $('선택자').stop().slideUp(시간, 콜백함수) : 시간생략가능(400ms), 콜백함수 생략가능, display:none 효과
+        $('선택자').stop().slideToggle(시간, 콜백함수) : slideDown()+slideUp()
+
+        $('선택자').show(시간, 콜백함수) : display:block 효과
+        $('선택자').hide(시간, 콜백함수) : display:none 효과
+        $('선택자').toggle(시간, 콜백함수) : show()+hide()
+
+        $('선택자').fadeIn(시간, 콜백함수) : display:block 효과
+        $('선택자').fadeOut(시간, 콜백함수) : display:none 효과
+        $('선택자').fadeToggle(시간, 콜백함수) : fadeIn()+fadeOut()
+     -->
+
+     <p>
+        <button type="button">보이기</button>
+        <button type="button">숨기기</button>
+        <button type="button">보임/숨김</button>
+     </p>
+     <div style="width:100px; height:100px; background:red"></div>
+
+     <script>
+        
+        $('button:eq(0)').on('click', function(){
+            // $(this).parent().next().stop().slideDown()
+            // $(this).parent().next().stop().show('slow')
+            $(this).parent().next().stop().fadeIn('slow')
+        })
+        $('button:eq(1)').on('click', function(){
+            // $(this).parent().next().stop().slideUp()
+            // $(this).parent().next().stop().hide('fast')
+            $(this).parent().next().stop().fadeOut('fast')
+        })
+        $('button:eq(2)').on('click', function(){
+            // $(this).parent().next().stop().slideToggle()
+            // $(this).parent().next().stop().toggle(40)
+            $(this).parent().next().stop().fadeToggle(40)
+        })
+
+
+     </script>
+
+
+</body>
+</html>

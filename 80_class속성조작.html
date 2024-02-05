@@ -45,19 +45,18 @@
 
       elLi.forEach(function (value, index) {
         value.onclick = function () {
-          // this.classList.toggle("font")
+          // this.classList.toggle("font");
           if (this.classList.contains("font")) {
             this.classList.remove("font");
-            this.classList.add("border");
           } else {
             this.classList.add("font");
-            this.classList.remove("border");
           }
         };
       });
 
       $("#menu > li").on("click", function () {
-        $(this).addClass("bgcolor").siblings().removeClass("bgcolor");
+        $(this).addClass("bgcolor");
+        $(this).siblings().removeClass("bgcolor");
       });
     </script>
   </body>

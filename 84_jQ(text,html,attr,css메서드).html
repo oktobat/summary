@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <!-- 
+        ** getter : 추출
+        $('선택자').text() : 선택자 안에 있는 글자만을 추출(textContent)
+        $('선택자').html() : 선택자 안에 있는 태그(요소)를 추출(innerHTML)
+        $('선택자').attr('속성명') : 태그가 갖고 있는 속성값을 추출
+        $('선택자').css('속성명') : 태그의 style 속성값을 추출
+
+        ** setter : 변경 또는 추가
+        $('선택자').text('내용') : 선택자 안에 내용이 수정되거나 입력
+        $('선택자').html('<요소>내용</요소>') : 선택자 안에 있는 요소를 수정하거나 입력
+        $('선택자').attr({       : 태그의 속성을 수정하거나 입력
+            속성명 : '속성값'
+        }) 
+        $('선택자').css({        : 태그의 스타일 속성을 수정하거나 입력
+            속성명 : '속성값'
+        })
+     -->
+
+    <h1>김은영</h1>
+    <h1>홍길동</h1>
+    <div class="school">
+        <strong>그린컴퓨터학원</strong>
+    </div>
+    <ul class="potal">
+        <li><a href="http://www.daum.net" style="color:red">다음</a></li>
+        <li><a href="http://www.naver.com" style="color:green">네이버</a></li>
+        <li><a href="http://www.yahoo.com" style="color:brown">야후</a></li>
+    </ul>
+    <p></p>
+
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box }
+        .gallery { max-width:300px; margin:50px auto }
+        .gallery ul { list-style:none; overflow:hidden }
+        .gallery ul li { float:left; width:25%; 
+            border:1px solid #000 }
+        .gallery ul li img { width:100%; vertical-align:middle }
+    </style>
+    <div class="gallery">
+        <ul>
+            <li><a href="http://www.naver.com"><img src="./img/car1.jpg" alt="이미지1"></a></li>
+            <li><a href="http://www.daum.net"><img src="./img/car2.jpg" alt="이미지2"></a></li>
+            <li><a href="http://www.google.com"><img src="./img/car3.jpg" alt="이미지3"></a></li>
+            <li><a href="http://www.nate.com"><img src="./img/car4.jpg" alt="이미지4"></a></li>
+        </ul>
+        <div class="stage">
+            <h2>이미지1</h2>
+            <a href="http://www.naver.com" target="_blank"><img src="./img/car1.jpg" alt="이미지1"></a>
+        </div>
+    </div>
+
+
+    <script>
+        // h1을 클릭했을때 안에 있는 글자를 추출해서 p요소에 입력하시오.
+        $('h1').on('click', function(){
+            let text = $(this).text()
+            $('p').text(text)
+        })
+
+        // div를 클릭했을때 안에 있는 요소를 추출해서 p요소에 입력하시오.
+        $('div.school').on('click', function(){
+            let html = $(this).html()
+            $('p').html(html)
+        })
+
+        // a를 클릭했을때 a의 href 속성값을 추출해서 p요소에 입력하시오.
+        // 스타일 속성의 color값을 추출해서 div의 글자색을 변경하시오.
+        $('.potal li a').on('click', function(){
+            let href = $(this).attr('href')
+            $('p').text(href)
+
+            let kim = $(this).css('color')
+            $('.school').css({
+                backgroundColor : kim,
+                color:'#fff'
+            })
+
+            return false
+        })
+
+      
+        // .gallery의 li>a를 클릭했을때 img의 src 속성과, alt 속성의 값을 추출해서 .stage의 <h2>의 내용과 img의 src와 alt 속성을 적용하시오.
+        // .gallery의 li>a의 href 값도 추출해서 .stage의 a 태그의 href 값으로 변경하시오.
+        var $h2 = $('.stage h2')    
+        var $a = $('.stage a')
+        var $img = $('.stage img')
+        var $gallerya = $('.gallery ul li a')
+
+        $gallerya.on('click', function(){
+            $(this).parent().css({
+                border:'1px solid #f00'
+            }).siblings().css({
+                border:'1px solid #000'
+            })
+            let src = $(this).find('img').attr('src')
+            let alt = $(this).find('img').attr('alt')
+            let href = $(this).attr('href')
+            $h2.text(alt)
+            $a.attr({ href:href })
+            $img.attr({
+                src : src,
+                alt : alt
+            })
+            return false
+        })    
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+
+            $('#contchild').css({
+                color:'red'
+            })
+
+            $('.part1').css({
+                color:'orange'
+            })
+
+            $('h2').css({
+                border:'1px solid #f00'
+            })
+
+
+        })
+    </script>
+</head>
+<body>
+    
+    <h2>
+        부모(parent), 자식들(children), 조상(parents), 후손(find), 이전형제 한명(prev), 다음형제 한명(next), 이전형제 전부(prevAll), 다음형제 전부(nextAll)
+    </h2>
+    <div id="container">
+        <div id="sub">
+            <p id="contchild">빅뱅</p>
+        </div>
+        <p>김은영</p>
+        <p>홍길동</p>
+        <p class="part1">장나라</p>
+        <p>소녀시대</p>
+        <p>원더걸스</p>
+    </div>
+
+
+    <h2>
+        형제끼리의 순서선택자(nth-child(), first-child, last-child, even, odd : 인덱스번호가 1번부터 시작),
+        선택자.eq(인덱스번호) : 인덱스번호가 0번부터 시작(형제관계일 필요는 없음),
+        나를 제외한 나의 모든 형제들(siblings)
+    </h2>
+    <ul id="nav1">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul id="nav2">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+
+    <script>
+        // #container의 자식 노드들 중에서 <p> 요소만 찾아서
+        // 배경색을 green 색으로 적용하시오.
+        // $('#container').children('p').css({
+        //     background:'green'
+        // })
+
+        // #container의 후손들(자식포함) 중에서 <p> 요소만 찾아서
+        // 배경색을 green 색으로 적용하시오.
+        // $('#container').find('p').css({
+        //     fontSize:'30px'
+        // })
+
+        // h2의 부모를 찾아서 배경색을 orange로 적용하시오.
+        // $('h2').parent().css({
+        //     background:'orange'
+        // })
+
+        // .part1의 할아버지(body)를 찾아서 배경색을 red로 적용하시오.
+        // $('.part1').parents('body').css({
+        //     background:'red'
+        // })
+
+        // .part1의 바로 이전형제를 찾아서 글씨크기를 80px로 적용
+        $('.part1').prev().css({
+            fontSize:'80px'
+        })
+
+
+        // <li>들 중에 첫번째를 찾아서 빨간색 글씨를 적용
+        // $('ul > li:first-child').css({
+        //     color:'red'
+        // })
+
+        // <li>들 중에 첫번째를 찾아서 빨간색 글씨를 적용
+        $('ul > li').eq(0).css({
+            color:'red'
+        })
+
+        // #nav1의 두번째 li의 모든 형제들의 글자색을 red로 적용
+        $('#nav1 li').eq(1).siblings().css({
+            color:'red'
+        })
+
+        // #nav2의 li를 클릭할때마다 클릭한 li의 배경색을 red로 적용하고, 나머지는 배경색을 제거하시오.
+        $('#nav2 li').on('click', function(){
+            $(this).css({
+                background:'red'
+            }).siblings().css({
+                background:''
+            })
+        })
+
+        // let li = document.querySelectorAll('#nav2 li')    
+        // let nav2 = document.querySelector('#nav2')
+        // for (let i in li) {
+        //     li[i].onclick = function(){
+        //         this.style.background = 'red'
+        //     }
+        // }
+
+
+
+    </script>
+
+</body>
+</html>
