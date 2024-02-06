@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+      .boardList {
+        max-width: 600px;
+        margin: 50px auto;
+        border: 1px solid #000;
+      }
+      .boardList .title {
+        display: flex;
+      }
+      .boardList .title li {
+        flex: 1;
+        border: 1px solid #000;
+        text-align: center;
+      }
+      .boardList .title li.on {
+        background: yellow;
+      }
+
+      .container .content {
+        height: 200px;
+        border: 1px solid #000;
+        display: none;
+      }
+      .container .content.on {
+        display: block;
+      }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+  </head>
+  <body>
+    <div class="boardList">
+      <ul class="title">
+        <li class="on"><a href="javascript:;">공지사항</a></li>
+        <li><a href="javascript:;">자유게시판</a></li>
+        <li><a href="javascript:;">상품후기</a></li>
+        <li><a href="javascript:;">Q&amp;A</a></li>
+      </ul>
+      <div class="container">
+        <div class="content on">공지사항내용</div>
+        <div class="content">자유게시판내용</div>
+        <div class="content">상품후기내용</div>
+        <div class="content">질의응답내용</div>
+      </div>
+    </div>
+
+    <script>
+      $(".title li").on("click", function () {
+        $(this).addClass("on").siblings().removeClass("on");
+        let num = $(this).index();
+        $(this)
+          .parent()
+          .next()
+          .find(".content")
+          .eq(num)
+          .addClass("on")
+          .siblings()
+          .removeClass("on");
+      });
+    </script>
+  </body>
+</html>

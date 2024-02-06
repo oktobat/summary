@@ -39,6 +39,7 @@
         border: 1px solid #000;
         text-align: center;
         padding: 20px 0;
+        transition: all 0.2s;
       }
       #nav .depth1 > li.on > a {
         background: #000;
@@ -53,10 +54,11 @@
         border: 1px solid #f00;
         display: none;
       }
+      /*
       #nav .depth1 > li.on .depth2 {
         display: block;
       }
-
+      */
       @media screen and (max-width: 600px) {
         #nav {
           width: 200px;
@@ -127,19 +129,24 @@
       //     $(this).removeClass("on");
       //   });
 
-      $("#nav .depth1 > li").hover(
-        function () {
-          $(this).addClass("on");
-        },
-        function () {
-          $(this).removeClass("on");
-        }
-      );
+      // $("#nav .depth1 > li").hover(
+      // function () {
+      //  $(this).addClass("on");
+      // },
+      // function () {
+      //   $(this).removeClass("on");
+      // }
+      // );
 
       //   $("#nav .depth1 > li").on("click", function () {
       //     $(this).addClass("on");
       //     $(this).siblings().removeClass("on");
       //   });
+
+      $("#nav .depth1 > li").on("mouseover mouseout", function () {
+        $(this).find(".depth2").stop().slideToggle();
+        $(this).toggleClass("on");
+      });
     </script>
   </body>
 </html>
