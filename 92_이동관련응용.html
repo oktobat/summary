@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { padding:0; margin:0; box-sizing:border-box; }
+        .gallery { overflow:hidden;
+            max-width:700px; margin:0 auto }
+        .gallery ul { list-style:none; 
+            /* height:200px;  */
+            width:500%; 
+            overflow:hidden;  
+            position:relative; left:-100%; }
+        .gallery ul li { float:left; width:20%; }
+        .gallery ul li img { width:100%; vertical-align:middle }
+    </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <div class="gallery">
+        <ul>
+            <li><a href="javascript:;"><img src="./img/dish1.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/dish2.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/dish3.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/dish4.jpg" alt=""></a></li>
+        </ul>
+        <div class="btn">
+            <button type="button">이전</button>
+            <button type="button">다음</button>
+        </div>
+    </div>
+
+    <script>
+        // 이전버튼을 클릭하면 마지막이 첫째가 되도록 하고,
+        // 다음버튼을 클릭하면 첫째가 마지막이 되도록 하시오.
+        // $('.btn button').eq(0).on('click', function(){
+        //     $('.gallery ul li:last-child').prependTo('.gallery ul')
+        // })
+        // $('.btn button').eq(1).on('click', function(){
+        //     $('.gallery ul li:first-child').appendTo('.gallery ul')
+        // })
+
+        $('.btn button').eq(0).on('click', function(){
+            imgChange(0)
+        })
+        $('.btn button').eq(1).on('click', function(){
+            imgChange(1)
+        })
+
+        function imgChange(btn) {
+            let gw = $('.gallery').width()
+            if ( btn ) {
+                $('ul li:first-child').animate({
+                    marginLeft:`-${gw}px`
+                }, 500, function(){
+                        $(this).appendTo('ul').css({
+                            marginLeft:'0px'
+                        })
+                })
+            } else {
+                $('ul li:first-child').animate({
+                    marginLeft:`${gw}px`
+                }, 500, function(){
+                    $(this).css({
+                        marginLeft:'0'
+                    })
+                    $('ul li:last-child').prependTo('ul')
+                })
+            }
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>

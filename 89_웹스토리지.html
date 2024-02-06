@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    세션(Session)
+    - 사용자 정보를 서버 측에서 관리
+    - 서버에서 세션 ID를 부여하며, 브라우저 종료시까지 인증상태를 유지함
+    - 접속 시간에 제한을 두어 일정 시간 응답이 없으면 세션을 강제 종료할 수 있음
+    - 데이터를 서버에 두기 때문에 보안은 좋지만 사용자가 많아지면 서버 메모리를 많이 차지함
+                
+    쿠키(Cookie)
+    - 클라이언트(브라우저)에 저장되는 키와 같이 들어있는 작은 파일
+    - 클라이언트에 300개까지 쿠키저장 가능
+    - 하나의 도메인당 20개의 값만 가질 수 있음
+    - 하나의 쿠키값은 4KB까지 저장이 가능
+    - 만료기간이 남아 있으면 브라우저를 종료해도 존재함
+
+    웹 스토리지(Web Storage)
+    - 클라이언트에 데이터를 저장할 수 있도록 HTML5부터 추가된 저장소
+    - 간단한 Key-Value 스토리지 형태
+    - 쿠키와 달리 자동 전송의 위험성이 없음
+    - 쿠키보다 큰 저쟝 용량 지원(모바일 2.5MB, 데스크탑 5~10MB)
+    - 서버가 HTTP 헤더를 통해 스토리지 객체를 조작할 수 없음
+    - 웹 스토리지 객체 조작은 JavaScript 내에서만 수행
+    - 오직 문자형(string) 데이터 타입만 지원
+    - 로컬 스토리지(Local Storage)와 세션 스토리지(Session Storage)가 있으며, 같은 Storage 객체를 상속하기 때문에 메서드가 동일
+
+    로컬 스토리지(localStorage)
+    - 사용자가 데이터를 지우지 않는 이상, 브라우저나 OS를 종료해도 계속 브라우저에 남아있음 (영구성)
+    - 단, 동일한 브라우저를 사용할 때만 해당 
+    - 지속적으로 필요한 데이터 저장(자동 로그인 등)
+    - 저장 : localStorage.setItem('키명', '값')     
+             값이 숫자이면 JSON.stringify() 로 문자화해서 저장
+    - 추출 : localStorage.getItem('키명')           
+            문자화된 숫자는 JSON.parse() 로 추출함
+    - 삭제 : localStorage.removeItem('키명')
+    - 전부삭제 : localStorage.clear()
+
+    세션 스토리지(sessionStorage)
+    - 윈도우나 브라우저 탭을 닫을 경우 제거됨
+    - 일시적으로 필요한 데이터 저장(일회성 로그인 정보, 입력폼 저장 등)
+     
+    -->
+
+     <input id='set_btn' type='button' value='저장'>
+     <input id='get_btn' type='button' value='추출'>
+     <input id='remove_btn' type='button' value='삭제'>
+     <div id='result'></result>
+
+     <script>
+        let set_btn = document.querySelector('#set_btn')
+        let get_btn = document.querySelector('#get_btn')
+        let remove_btn = document.querySelector('#remove_btn')
+        let result = document.querySelector('#result')
+
+        set_btn.addEventListener('click', function(){
+            setItemWithExpireTime('keyName', '김은영', 20, 10000)
+        })
+
+        function setItemWithExpireTime(keyName, name, age, tts) {
+            const obj = {
+                name : name,
+                age : age,
+                expire : Date.now()+tts     
+                // Date.now() 메소드는 UTC 기준으로 1970년 1월 1일 0시 0분 0초부터 현재까지 경과된 밀리 초를 반환합니다.
+                // 지정한날짜.getTime() :  1970년 1월 1일부터 지정한 날짜까지 경과한 밀리초(1초는 1000ms)를 구해주는 함수
+            }
+            const objString = JSON.stringify(obj)
+            localStorage.setItem(keyName, objString)
+        }
+        
+        get_btn.addEventListener('click', function(){
+            const keyName = getItemWithExpireTime('keyName')
+
+            if (keyName) {
+                result.textContent = `${keyName.name}은 ${keyName.age}세입니다.`
+            } else {
+                result.textContent = ""
+            }
+
+        })
+
+        function getItemWithExpireTime(keyName) {
+            const objString = localStorage.getItem(keyName)
+            if (!objString) {
+                return null
+            }
+            const obj = JSON.parse(objString)
+            if (Date.now() > obj.expire) {
+                localStorage.removeItem(keyName)
+                return null
+            }
+            return obj
+        }
+        
+
+     </script>
+
+
+
+
+     
+
+</body>
+</html>

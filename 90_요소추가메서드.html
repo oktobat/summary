@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <!--
+        $('선택자').prepend('요소') : 선택자의 첫번째 자식으로 요소를 추가함
+        $('선택자').append('요소') : 선택자의 마지막 자식으로 요소를 추가함
+        $('선택자').before('요소') : 선택자의 바로 이전요소로 추가함
+        $('선택자').after('요소') : 선택자의 바로 다음요소로 추가함
+     -->
+
+     <div id="box" style="width:500px; background:red">
+        <h1>김은영</h1>
+     </div>
+
+     <script>
+        $('#box').prepend('<p>나는 박스의 첫번째 자식</p>')
+        $('#box').append('<p>나는 박스의 마지막 자식</p>')
+        $('#box').prepend('<div class="child">나도 자식이야</div>')
+
+        $('#box').before('<div class="brother">박스의 바로 위의 오빠</div>')
+        $('#box').before('<div class="brother">박스의 바로 위의 언니</div>')
+        $('#box').after('<div class="brother">박스의 바로 아래아래 동생</div>')
+        $('#box').after('<div class="brother">박스의 바로 아래 동생</div>')
+
+        
+     </script>
+
+</body>
+</html>
