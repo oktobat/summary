@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+  </head>
+  <body>
+    <div style="max-width: 500px">
+      <video style="width: 100%" src="./image/movie.mp4"></video>
+      <button>재생</button>
+      <button>멈춤</button>
+    </div>
+
+    <script>
+      $("button:eq(0)").on("click", function () {
+        let vid = $("video").get(0);
+        vid.currentTime = 0; // 처음부터 재생하려면
+        vid.play();
+      });
+      $("button:eq(1)").on("click", function () {
+        let vid = $("video").get(0);
+        vid.pause();
+      });
+    </script>
+  </body>
+</html>

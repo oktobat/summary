@@ -13,10 +13,14 @@
       ul {
         list-style: none;
       }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
       .boardList {
         max-width: 600px;
         margin: 50px auto;
-        border: 1px solid #000;
       }
       .boardList .title {
         display: flex;
@@ -31,12 +35,35 @@
       }
 
       .container .content {
-        height: 200px;
-        border: 1px solid #000;
         display: none;
       }
       .container .content.on {
         display: block;
+      }
+      .container .content table {
+        border: 0px solid #f00;
+      }
+      .container .content table th,
+      .container .content table td {
+        padding: 5px;
+        border-bottom: 1px solid gray;
+        text-align: center;
+      }
+      .container .content table td:nth-child(2) {
+        text-align: left;
+        /* 두 줄 이상 넘치는 내용을 한줄로 표시하기 위한 속성 */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .container .content table col:nth-child(1) {
+        width: 80px;
+      }
+      .container .content table col:nth-child(2) {
+        width: auto;
+      }
+      .container .content table col:nth-child(3) {
+        width: 100px;
       }
     </style>
     <script src="./js/jquery-1.12.4.min.js"></script>
@@ -50,10 +77,183 @@
         <li><a href="javascript:;">Q&amp;A</a></li>
       </ul>
       <div class="container">
-        <div class="content on">공지사항내용</div>
-        <div class="content">자유게시판내용</div>
-        <div class="content">상품후기내용</div>
-        <div class="content">질의응답내용</div>
+        <div class="content on">
+          <table>
+            <colgroup>
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>날짜</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  공지사항1 Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit. Error reiciendis placeat sed omnis commodi doloribus
+                  vero nihil, ea veniam esse asperiores amet assumenda, odio
+                  libero qui quis, repudiandae nostrum quam.
+                </td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>공지사항2</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>공지사항3</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>공지사항4</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>공지사항5</td>
+                <td>2024-02-07</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="content">
+          <table>
+            <colgroup>
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>날짜</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>자유게시판1</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>공지사항2</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>공지사항3</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>공지사항4</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>공지사항5</td>
+                <td>2024-02-07</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="content">
+          <table>
+            <colgroup>
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>날짜</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>상품후기1</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>공지사항2</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>공지사항3</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>공지사항4</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>공지사항5</td>
+                <td>2024-02-07</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="content">
+          <table>
+            <colgroup>
+              <col />
+              <col />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>날짜</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>질의응답1</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>공지사항2</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>공지사항3</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>공지사항4</td>
+                <td>2024-02-07</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>공지사항5</td>
+                <td>2024-02-07</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
