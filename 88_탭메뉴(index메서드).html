@@ -18,12 +18,18 @@
         border-collapse: collapse;
         table-layout: fixed;
       }
+      .blind {
+        position: absolute;
+        text-indent: -9999px;
+        overflow: hidden;
+      }
       .boardList {
         max-width: 600px;
         margin: 50px auto;
       }
       .boardList .title {
         display: flex;
+        padding-right: 50px;
       }
       .boardList .title li {
         flex: 1;
@@ -36,12 +42,16 @@
 
       .container .content {
         display: none;
+        position: relative;
       }
       .container .content.on {
         display: block;
       }
       .container .content table {
         border: 0px solid #f00;
+      }
+      .container .content table th {
+        border-top: 1px solid gray;
       }
       .container .content table th,
       .container .content table td {
@@ -64,6 +74,15 @@
       }
       .container .content table col:nth-child(3) {
         width: 100px;
+      }
+      .container .content .more {
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 0px 8px;
+        background: gray;
       }
     </style>
     <script src="./js/jquery-1.12.4.min.js"></script>
@@ -124,6 +143,7 @@
               </tr>
             </tbody>
           </table>
+          <a href="#" class="more"><span class="blind">더보기</span>+</a>
         </div>
         <div class="content">
           <table>
@@ -167,6 +187,7 @@
               </tr>
             </tbody>
           </table>
+          <a href="#" class="more"><span class="blind">더보기</span>+</a>
         </div>
         <div class="content">
           <table>
@@ -210,6 +231,7 @@
               </tr>
             </tbody>
           </table>
+          <a href="#" class="more"><span class="blind">더보기</span>+</a>
         </div>
         <div class="content">
           <table>
@@ -253,6 +275,7 @@
               </tr>
             </tbody>
           </table>
+          <a href="#" class="more"><span class="blind">더보기</span>+</a>
         </div>
       </div>
     </div>
