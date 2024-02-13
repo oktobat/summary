@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="./js/jquery-1.12.4.min.js"></script>
-</head>
-<body>
-    
+  </head>
+  <body>
     <!--
         $('선택자').prepend('요소') : 선택자의 첫번째 자식으로 요소를 추가함
         $('선택자').append('요소') : 선택자의 마지막 자식으로 요소를 추가함
         $('선택자').before('요소') : 선택자의 바로 이전요소로 추가함
         $('선택자').after('요소') : 선택자의 바로 다음요소로 추가함
+        $('선택자').wrap('요소') : 선택자의 부모 요소를 추가함
+        $('선택자').unwrap() : 선택자의 부모 요소를 제거함
+        $('선택자').remove() : 선택자를 삭제함(안에 있는 자식들도 같이 삭제됨)
      -->
 
-     <div id="box" style="width:500px; background:red">
-        <h1>김은영</h1>
-     </div>
+    <div id="box" style="width: 500px; background: red">
+      <h1>김은영</h1>
+    </div>
+    <button id="prepend">prepend</button>
+    <button id="append">append</button>
+    <button id="before">before</button>
+    <button id="after">after</button>
 
-     <script>
-        $('#box').prepend('<p>나는 박스의 첫번째 자식</p>')
-        $('#box').append('<p>나는 박스의 마지막 자식</p>')
-        $('#box').prepend('<div class="child">나도 자식이야</div>')
-
-        $('#box').before('<div class="brother">박스의 바로 위의 오빠</div>')
-        $('#box').before('<div class="brother">박스의 바로 위의 언니</div>')
-        $('#box').after('<div class="brother">박스의 바로 아래아래 동생</div>')
-        $('#box').after('<div class="brother">박스의 바로 아래 동생</div>')
-
-        
-     </script>
-
-</body>
+    <script>
+      // 버튼을 클릭하면 #box의 첫번째 자식으로 <p>부모의 첫째 자식</p> 요소 추가하기
+      $("#prepend").on("click", function () {
+        $("#box").prepend("<p>부모의 첫째 자식</p>");
+      });
+      $("#append").on("click", function () {
+        $("#box").append("<p>부모의 마지막 자식</p>");
+      });
+      $("#before").on("click", function () {
+        $("#box").before("<p>형제의 바로 이전 요소</p>");
+      });
+      $("#after").on("click", function () {
+        $("#box").after("<p>형제의 바로 다음 요소</p>");
+      });
+    </script>
+  </body>
 </html>
