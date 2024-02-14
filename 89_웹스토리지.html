@@ -60,10 +60,10 @@
         let result = document.querySelector('#result')
 
         set_btn.addEventListener('click', function(){
-            setItemWithExpireTime('keyName', '김은영', 20, 10000)
+            setItemWithExpireTime('김은영', 20, 10000)
         })
 
-        function setItemWithExpireTime(keyName, name, age, tts) {
+        function setItemWithExpireTime(name, age, tts) {
             const obj = {
                 name : name,
                 age : age,
@@ -72,18 +72,16 @@
                 // 지정한날짜.getTime() :  1970년 1월 1일부터 지정한 날짜까지 경과한 밀리초(1초는 1000ms)를 구해주는 함수
             }
             const objString = JSON.stringify(obj)
-            localStorage.setItem(keyName, objString)
+            localStorage.setItem('kim', objString)
         }
         
         get_btn.addEventListener('click', function(){
-            const keyName = getItemWithExpireTime('keyName')
-
-            if (keyName) {
-                result.textContent = `${keyName.name}은 ${keyName.age}세입니다.`
+            let obj = getItemWithExpireTime('kim')
+            if (obj) {
+                result.textContent = `${obj.name}은 ${obj.age}입니다.`
             } else {
                 result.textContent = ""
             }
-
         })
 
         function getItemWithExpireTime(keyName) {
@@ -99,6 +97,11 @@
             return obj
         }
         
+
+        remove_btn.addEventListener("click", function(){
+            // localStorage.removeItem("kim")
+            localStorage.clear()
+        })
 
      </script>
 

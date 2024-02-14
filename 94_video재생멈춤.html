@@ -7,21 +7,40 @@
     <script src="./js/jquery-1.12.4.min.js"></script>
   </head>
   <body>
-    <div style="max-width: 500px">
+    <div id="box1" style="max-width: 500px">
       <video style="width: 100%" src="./image/movie.mp4"></video>
       <button>재생</button>
       <button>멈춤</button>
     </div>
 
+    <div id="box2" style="max-width: 500px">
+      <video
+        style="width: 100%"
+        src="./image/movie.mp4"
+        muted
+        autoplay
+        loop
+      ></video>
+      <button>재생</button>
+      <button>멈춤</button>
+    </div>
+
     <script>
+      let vid = $("video").get(0);
       $("button:eq(0)").on("click", function () {
-        let vid = $("video").get(0);
         vid.currentTime = 0; // 처음부터 재생하려면
         vid.play();
       });
       $("button:eq(1)").on("click", function () {
-        let vid = $("video").get(0);
         vid.pause();
+      });
+
+      let vid2 = $("video").get(1);
+      $("button:eq(2)").on("click", function () {
+        vid2.play();
+      });
+      $("button:eq(3)").on("click", function () {
+        vid2.pause();
       });
     </script>
   </body>
