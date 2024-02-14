@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"
+      integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       * {
         margin: 0;
@@ -103,6 +110,13 @@
         padding: 20px 0;
       }
     </style>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+      integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
     <h2>회원가입</h2>
@@ -175,7 +189,7 @@
               <td>
                 <input type="text" id="emailid" name="emailid" />
                 @
-                <input type="text" disabled name="emaildomain" />
+                <input type="text" disabled name="edomain" id="edomain" />
                 <select id="emaildomain">
                   <option value="subject">-이메일선택-</option>
                   <option value="naver.com">네이버</option>
@@ -368,5 +382,83 @@
         </div>
       </form>
     </div>
+
+    <script>
+      // 이메일 계정 선택하기
+      $("#emaildomain").on("change", function () {
+        $("#emaildomain option:selected").each(function () {
+          let value = $(this).val();
+          if (value !== "subject" && value !== "self") {
+            $("#edomain").val(value).attr({ disabled: true });
+          } else if (value == "subject") {
+            $("#edomain").val("").attr({ disabled: true });
+          } else {
+            $("#edomain").val("").attr({ disabled: false });
+          }
+        });
+      });
+
+      // 관심분야 전체선택 체크 유무
+      $("#all").on("click", function () {
+        let bool = $(this).prop("checked");
+        $("input[name^='co']").prop("checked", bool);
+      });
+
+      $("input[name^='co']").each(function () {
+        $(this).on("click", function () {
+          if (!$(this).prop("checked")) {
+            $("#all").prop("checked", false);
+          }
+        });
+      });
+
+      // 메모박스에 남은 글자 체크하기
+      $("#memo").on("keyup", function () {
+        let maxlen = 10;
+        let count = $(this).val().length;
+        let remain = maxlen - count;
+        $(this).next().text(remain);
+      });
+
+      // 데이트피커(datepicker) 라이브러리 사용하기
+      $("#birth").datepicker({
+        showOtherMonths: true,
+        selectOtherMonths: true,
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: "yy-mm-dd",
+        yearSuffix: "년", //달력의 년도 부분 뒤 텍스트
+        monthNamesShort: [
+          "1월",
+          "2월",
+          "3월",
+          "4월",
+          "5월",
+          "6월",
+          "7월",
+          "8월",
+          "9월",
+          "10월",
+          "11월",
+          "12월",
+        ], //달력의 월 부분 텍스트
+        monthNames: [
+          "1월",
+          "2월",
+          "3월",
+          "4월",
+          "5월",
+          "6월",
+          "7월",
+          "8월",
+          "9월",
+          "10월",
+          "11월",
+          "12월",
+        ], //달력의 월 부분 Tooltip
+        dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"], //달력의 요일 텍스트
+        showMonthAfterYear: true,
+      });
+    </script>
   </body>
 </html>
