@@ -459,6 +459,54 @@
         dayNamesMin: ["일", "월", "화", "수", "목", "금", "토"], //달력의 요일 텍스트
         showMonthAfterYear: true,
       });
+
+      $(".joinBox form").on("submit", function () {
+        let userid = $("#userid").val();
+        // console.log(userid);
+        if (!userid) {
+          alert("아이디를 입력하세요.");
+          $("#userid").focus();
+          return false;
+        }
+
+        let userpw = $("#userpw").val();
+        if (!userpw) {
+          alert("비밀번호를 입력하세요.");
+          $("#userpw").focus();
+          return false;
+        }
+
+        let pwok = $("#pwok").val();
+        if (pwok !== userpw) {
+          alert("비밀번호를 확인하세요.");
+          $("#userpw").focus();
+          return false;
+        }
+
+        let username = $("#username").val();
+        if (!username) {
+          alert("이름을 입력하세요.");
+          $("#username").focus();
+          return false;
+        }
+
+        let tel1 = $("#tel1").val();
+        let tel2 = $("#tel2").val();
+        let check1 = /[0-9]{3,4}/; // /\d{3,4}/
+        let check2 = /\d{4}/; // /\d{4}/
+        if (!check1.test(tel1)) {
+          alert("번호 형식이 맞지 않습니다.");
+          $("#tel1").focus();
+          return false;
+        }
+        if (!check2.test(tel2)) {
+          alert("번호 형식이 맞지 않습니다.");
+          $("#tel2").focus();
+          return false;
+        }
+
+        return false; // 백엔드 프로그램 연결후에는 삭제함
+      });
     </script>
   </body>
 </html>
