@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 전처리기 활용하기</title>
+    <link rel="stylesheet" href="mystyle.css">    
+</head>
+<body>
+    
+<!-- 
+    1. Sass란
+        1) Sass는 css 전처리기 : CSS가 만들어지기 전에 이런저런 일들을 먼저 처리해줌
+        2) Syntactically Awesome Style Sheets : 구문(문법규칙)적으로 엄청나게 좋은 style sheets
+        3) CSS 내 반복되는 내용은 줄이고 보다 효율적으로 스타일시트를 관리할 수 있음
+        4) 속성값을 변수에 저장하여 사용할 수 있음 
+           $main-color : red;
+           $phone: "only screen and (max-width:600px)";
+
+           h1 { color : $main-color;
+                @media #{$phone} {  background:green  }
+              } 
+           p { background-color : $main-color }
+           
+    2. Sass와 SCSS 중 SCSS가 css와 작성방식이 유사하여 많이 사용함
+    3. vsc에서 Live Sass Compiler 설치하여 SCSS 작성하기
+        1) vsc 에서 Live Sass Compiler 플러그인 검색하여 설치
+        2) scss파일 만들어서 작성
+        3) 작업창 하단에 Watch Sass 눌러주면 css 로 컴파일 됨.
+        4) html에서는 컴파일된 css 파일을 연결해줌
+        5) 호스팅에 업로드할때는 css 파일만 업로드함 
+-->
+
+    <h1>김은영</h1>
+    <nav id="nav">
+        <ul class="depth1 cf">
+            <li><a href="#">메뉴1</a>
+                <ul class="depth2">
+                    <li><a href="#">서브메뉴</a></li>
+                    <li><a href="#">서브메뉴</a></li>
+                    <li><a href="#">서브메뉴</a></li>
+                </ul>
+            </li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>

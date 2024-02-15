@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        콜백헬을 해결하기 위해 Promise 등장
+        Promise는 함수를 인자로 받으며 인자로 들어온 함수는
+        다시 resolve와 reject 두개의 콜백함수를 인자로 받게 된다.
+        resolve는 비동기 처리 성공시 호출되며
+        reject는 비동기 처리 실패시 호출됨
+     -->
+
+     <script>
+        // const myPromise1 = (value) => {
+        //     return new Promise((resolve, reject)=>{
+        //         setTimeout(()=>{
+        //             resolve(value);
+        //             reject('오류')
+        //         }, 300)
+        //     }) 
+        // }
+
+        // const myPromise2 = (value) => {
+        //     return new Promise((resolve, reject)=>{
+        //         setTimeout(()=>{
+        //             resolve(value);
+        //             reject('오류')
+        //         }, 200)
+        //     }) 
+        // }
+
+        // const myPromise3 = (value) => {
+        //     return new Promise((resolve, reject)=>{
+        //         setTimeout(()=>{
+        //             resolve(value);
+        //             reject('오류')
+        //         }, 100)
+        //     }) 
+        // }
+
+        const myPromise = (value, time) => {
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    resolve(value);
+                    reject('오류')
+                }, time)
+            }) 
+        }
+
+        myPromise('a', 300)
+        .then( 
+            (value)=>{ console.log(value)
+                       myPromise('b', 200) } 
+        )
+        .then(
+            (value)=>{ console.log(value); 
+                       return myPromise('c', 100) }
+        )
+        .then(
+            (value)=>{ console.log(value); }
+        ).catch(
+            (error)=>{ console.log(error)}
+        ).finally(
+            ()=> console.log('끝')
+        )
+
+        
+        
+     </script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box }
+        .row { max-width:800px; margin:0 auto }
+        ul { list-style:none }
+        a { color:inherit; text-decoration:none }
+
+        ul.tabTit { display:flex; }
+        ul.tabTit li { background:red; margin:5px; color:#fff }
+        ul.tabTit li.on { background:blue }
+        ul.tabTit li a { padding:10px; display:block; }
+
+        ul.docList { display:flex; flex-wrap:wrap; }
+        ul.docList li { flex:1 1 25%;  }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="row">
+        <h1>아산병원</h1>
+        <h2>아산병원 진료과</h2>
+        <ul class="tabTit">
+            <li class="on"><a href="part1">가정의학과</a></li>
+            <li><a href="part2">간담도췌외과</a></li>
+            <li><a href="part3">마취학과</a></li>
+        </ul>
+        <!-- <ul class="docList">
+            <li>
+                <div><img src="./img/doctor1.jpg" alt=""></div>
+                <p>김영식</p>
+                <p>가정의학과</p>
+                <p>심뇌혈관질환1차예방</p>
+            </li>
+        </ul> -->
+    </div>
+
+
+    <script>
+        var vdata = { }
+        $.ajax({
+            type:'GET',
+            url:'./data/doctors.json',
+            dataType:'json',
+            // async:true,
+            // beforeSend : function() { },
+            // complete : function() { },
+            success : function(rdata){
+                console.log(rdata)
+                vdata = rdata
+                doctor('part1')
+            },
+            error : function(xhr){
+                alert(xhr.status + "/" + xhr.errorText)
+            }
+        })
+
+        function doctor(keyname) {
+            let list = `<ul class="docList">`
+            // 키이름을 변수에 저장해서 사용할 때는 객체명[변수명]
+            // 키이름을 직접 사용할 때는 객체명.키이름 === 객체명["키이름"]
+            vdata[keyname].map(function(value, index){
+                console.log(value, index)
+                list += `<li>`
+                list += `<div><img src="${value.photo}" alt=""></div>`
+                list += `<p>${value.name}</p>`
+                list += `<p>${value.depart}</p>`
+                list += `<p>${value.about}</p>`
+                list += `</li>`
+            })
+            list += `</ul>`
+            $('.row').append(list)
+        }
+
+        $('.tabTit li a').on('click', function(){
+            let href = $(this).attr('href')
+            // console.log(href)
+            $(this).parent().addClass('on').siblings().removeClass('on')
+            $('.docList').remove()
+            doctor(href)
+            return false
+        })
+
+
+    </script>
+</body>
+</html>

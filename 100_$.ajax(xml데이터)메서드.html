@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box }
+        .row { max-width:800px; margin:0 auto }
+        ul { list-style:none }
+        a { color:inherit; text-decoration:none }
+
+        ul.tabTit { display:flex; }
+        ul.tabTit li { background:red; margin:5px; color:#fff }
+        ul.tabTit li.on { background:blue }
+        ul.tabTit li a { padding:10px; display:block; }
+
+        ul.docList { display:flex; flex-wrap:wrap; }
+        ul.docList li { flex:1 1 25%;  }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="row">
+        <h1>아산병원</h1>
+        <h2>아산병원 진료과</h2>
+        <ul class="tabTit">
+            <li class="on"><a href="part1">가정의학과</a></li>
+            <li><a href="part2">간담도췌외과</a></li>
+            <li><a href="part3">마취학과</a></li>
+        </ul>
+        <!-- <ul class="docList">
+            <li>
+                <div><img src="./img/doctor1.jpg" alt=""></div>
+                <p>김영식</p>
+                <p>가정의학과</p>
+                <p>심뇌혈관질환1차예방</p>
+            </li>
+        </ul> -->
+    </div>
+
+
+    <script>
+        var vdata = ""
+        $.ajax({
+            type:'GET',
+            url:'./data/doctors.xml',
+            dataType:'xml',
+            // async:true,
+            // beforeSend : function() { },
+            // complete : function() { },
+            success : function(rdata){
+                console.log(rdata)
+                vdata = rdata
+                doctor('part1')
+            },
+            error : function(xhr){
+                alert(xhr.status + "/" + xhr.errorText)
+            }
+        })
+
+        function doctor(cname) {
+            let list = `<ul class="docList">`
+            $(vdata).find('.'+cname).find('doctor').each(function(){
+                let name = $(this).find('name').text()
+                let depart = $(this).find('depart').text()
+                let about = $(this).find('about').text()
+                let photo = $(this).find('photo').text()
+                list += `<li>`
+                list += `<div><img src="${photo}" alt=""></div>`
+                list += `<p>${name}</p>`
+                list += `<p>${depart}</p>`
+                list += `<p>${about}</p>`
+                list += `</li>`
+            })
+            list += `</ul>`
+            $('.row').append(list)
+        }
+
+        $('.tabTit li a').on('click', function(){
+            let href = $(this).attr('href')
+            // console.log(href)
+            $(this).parent().addClass('on').siblings().removeClass('on')
+            $('.docList').remove()
+            doctor(href)
+            return false
+        })
+
+
+    </script>
+</body>
+</html>
