@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  color: red;
+}
+@media only screen and (max-width:600px) {
+  h1 {
+    background: green;
+  }
+}
+
+#nav {
+  max-width: 500px;
+  margin: 0 auto;
+}
+#nav .depth1 {
+  display: flex;
+}
+#nav .depth1 > li {
+  flex: 1;
+  border: 1px solid #000;
+  position: relative;
+}
+#nav .depth1 > li:hover .depth2 {
+  display: block;
+}
+#nav .depth1 > li .depth2 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #000;
+  display: none;
+}/*# sourceMappingURL=mystyle.css.map */

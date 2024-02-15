@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>css 전처리기 활용하기</title>
-    <link rel="stylesheet" href="mystyle.css">    
-</head>
-<body>
-    
-<!-- 
+    <link rel="stylesheet" href="./css/mystyle.css" />
+  </head>
+  <body>
+    <!-- 
     1. Sass란
         1) Sass는 css 전처리기 : CSS가 만들어지기 전에 이런저런 일들을 먼저 처리해줌
         2) Syntactically Awesome Style Sheets : 구문(문법규칙)적으로 엄청나게 좋은 style sheets
@@ -34,18 +33,18 @@
 
     <h1>김은영</h1>
     <nav id="nav">
-        <ul class="depth1 cf">
-            <li><a href="#">메뉴1</a>
-                <ul class="depth2">
-                    <li><a href="#">서브메뉴</a></li>
-                    <li><a href="#">서브메뉴</a></li>
-                    <li><a href="#">서브메뉴</a></li>
-                </ul>
-            </li>
-            <li><a href="#">메뉴2</a></li>
-            <li><a href="#">메뉴3</a></li>
-        </ul>
+      <ul class="depth1">
+        <li>
+          <a href="#">메뉴1</a>
+          <ul class="depth2">
+            <li><a href="#">서브메뉴</a></li>
+            <li><a href="#">서브메뉴</a></li>
+            <li><a href="#">서브메뉴</a></li>
+          </ul>
+        </li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+      </ul>
     </nav>
-
-</body>
+  </body>
 </html>

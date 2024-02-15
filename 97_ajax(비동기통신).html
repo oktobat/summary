@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <!-- 
+        동기통신(Synchronous) : 데이터를 요청한 후 응답이 올때까지 대기해야 함
+        비동기통신(Asynchronous JavaScript and XML) : 데이터를 요청한 후 응답이 올때까지 대기하지 않고 다른 일을 할 수 있음
         1. XMLHttpRequest() 객체생성
         2. 비동기통신요청 .open()
            xhr.open('전송방식', '요청주소', true이면 비동기(생략가능))
         3. 요청을 전송 .send()
      -->
 
+    <div id="box"></div>
+
     <script>
-       let xhr = new XMLHttpRequest()  
-       xhr.open('GET', './data/doctors.json')
-       xhr.onload = function(){
-            if ( xhr.status === 200 ) {
-                let rdata = JSON.parse(xhr.responseText)
-                console.log(rdata)
-            } else {
-                alert(xhr.status + "/" + xhr.errorText)
-            }
-       } 
-       xhr.send()
+      let box = document.querySelector("#box");
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET", "./data/mydata.json");
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          let rdata = JSON.parse(xhr.responseText);
+          console.log(rdata);
+          let list = "<ul>";
+          rdata.map((value, index) => {
+            list += `<li>${value.name} : ${value.age}</li>`;
+          });
+          list += "</ul>";
+          box.innerHTML = list;
+        } else {
+          alert(xhr.status + "/" + xhr.errorText);
+        }
+      };
+      xhr.send();
     </script>
-</body>
+  </body>
 </html>
