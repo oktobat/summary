@@ -505,6 +505,31 @@
           return false;
         }
 
+        let emailid = $("#emailid").val();
+        let check3 = /^[a-zA-Z0-9]+$/; // 첫글자는 영문소문자, 대문자, 숫자 중 하나여야 함
+        // ^ : 첫문자 일치
+        // $ : 끝문자 일치
+        // + : 한번 이상 포함
+        // * : 0번 이상 포함
+        if (!check3.test(emailid)) {
+          alert("이메일 아이디 형식이 맞지 않습니다.");
+          $("#emailid").focus();
+          return false;
+        }
+
+        let edomain = $("#edomain").val();
+        let check4 = /^[a-zA-Z0-9]+[\.][a-z]+([\.][a-z]+)*$/;
+        if (!check4.test(edomain)) {
+          alert("이메일을 정확하게 입력하세요.");
+          $("#edomain").focus();
+        }
+
+        let gender = $("input[name='gender']:checked").length;
+        if (!gender) {
+          alert("성별을 선택해 주세요.");
+          return false;
+        }
+
         return false; // 백엔드 프로그램 연결후에는 삭제함
       });
     </script>
