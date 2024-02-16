@@ -19,7 +19,7 @@
             화살표함수는 this를 갖지 않으므로 바로 바깥 상위함수(일반함수)의 this를 가리킴
             화살표함수에 없는 것 : 함수이름, this, arguments
 
-            일반함수에서는 this의 바인딩을 .bind(this) 메서드로 묶어서 상위함수의 this를 가리키게 하거나, var that = this 처럼 this를 다른 변수에 옮겨 담아서 해결함
+            일반함수에서는 this의 바인딩을 .bind(this) 메서드로 묶어서 상위함수의 this를 가리키게 하거나, let that = this 처럼 this를 다른 변수에 옮겨 담아서 해결함
 
             (7) 디스트럭처링(distructuring) 할당(구조분해할당) : 배열이나 객체의 속성을 해체하여 그 값을 개별 변수에 담을 수 있게 하는 표현식
      -->
@@ -30,103 +30,110 @@
       var myObj = {
         count: 0,
 
+        // setCounter: function () {
+        //   console.log(this.count); // 0
+        //   btn.addEventListener(
+        //     "click",
+        //     function () {
+        //       console.log(this.count);
+        //     }.bind(this)
+        //   );
+        // },
+
         setCounter: function () {
           console.log(this.count);
-          btn.addEventListener(
-            "click",
-            function () {
-              console.log(this.count);
-            }.bind(this)
-          );
+          btn.addEventListener("click", () => {
+            console.log(this.count);
+          });
         },
-
-        // setCounter: function () {
-        //   console.log(this.count);
-        //   btn.addEventListener("click", () => {
-        //     console.log(this.count);
-        //   });
-        // },
       };
       myObj.setCounter();
 
-      // function kim() {
-      //   // parameter(매개변수)를 생략하면
-      //   console.log(arguments); // arguments라는 기본 파라미터가
-      // } // 호출문에서 보낸 인수(argument)를 전부 받음
-      // kim(80, 90, 100);
+      function kim() {
+        // parameter(매개변수)를 생략하면
+        console.log(arguments[0]); // arguments라는 기본 파라미터가
+      } // 호출문에서 보낸 인수(argument)를 전부 받음
+      kim(80, 90, 100);
 
-      // // const park = ()=>{
-      // //     console.log(arguments)     // 화살표함수에는 arguments를 사용할 수 없음
-      // // }
-      // // park(80, 90, 100)
+      const park = () => {
+        console.log(arguments); // 화살표함수에는 arguments를 사용할 수 없음
+      };
+      // park(80, 90, 100);
 
-      // // 배열구조분해
-      // {
-      //   let a, b;
-      //   [a, b] = [10, 20];
-      //   console.log(a, b);
-      // }
+      // 배열구조분해
+      {
+        let a, b, c;
+        // a = 10;
+        // b = 20;
+        [a, b, c] = [10, 20, 30];
+        console.log(a, b, c);
+      }
 
-      // {
-      //   let x = [1, 2, 3, 4, 5];
-      //   let [f, g] = x;
-      //   console.log(f, g);
-      // }
+      {
+        let x = [1, 2, 3, 4, 5];
+        let [f, g] = x;
+        console.log(f, g);
+      }
 
-      // {
-      //   let x = 100,
-      //     y = 200;
-      //   [y, x] = [x, y];
-      //   console.log(x, y);
-      // }
+      {
+        let x = 100,
+          y = 200;
+        [y, x] = [x, y];
+        console.log(x, y);
+      }
 
-      // {
-      //   let x = [1000, 2000, 3000];
-      //   let [s, , t] = x;
-      //   console.log(s, t);
-      // }
+      {
+        let x = [1000, 2000, 3000];
+        let [s, , t] = x;
+        console.log(s, t);
+      }
 
-      // {
-      //   let x = [10000, 20000, 30000];
-      //   let [o, ...p] = x; // ...(스프레드 연산자)
-      //   console.log(o, p);
-      // }
+      {
+        let x = [10000, 20000, 30000];
+        let [o, ...p] = x; // ...(스프레드 연산자) : 나머지를 copy함
+        console.log(o, p);
+      }
 
-      // // fruitOne.concat(fruitTwo)
-      // let fruitOne = ["apple", "banna"];
-      // // let fruitTwo = ['grape'];
-      // let fruitTwo = [...fruitOne, "grape"];
-      // console.log(fruitTwo);
+      let fruitOne = ["apple", "banna"];
+      let fruitTwo = ["grape"];
+      let fruitThree = fruitOne.concat(fruitTwo);
+      console.log(fruitThree);
 
-      // // 객체구조분해
-      // {
-      //   let a = { b: 42, c: true };
-      //   let { b, c } = a; // 객체의 원래 속성(키)명과 같은 이름의 변수에 할당
-      //   console.log(b, c);
-      // }
+      let fruitFour = [...fruitOne, "grape"];
+      console.log(fruitFour);
 
-      // {
-      //   let a = { b: 42, c: true };
-      //   let { b: f, c: g } = a; // 다른 이름의 변수에 할당
-      //   console.log(f, g);
-      // }
+      // 객체구조분해
+      {
+        let a = { b: 42, c: true };
+        // 객체의 원래 속성(키)명과 같은 이름의 변수에 할당해야 축약 가능
+        // let { b:b, c:c} = a;
+        let { b, c } = a;
+        console.log(b, c);
+      }
 
-      // {
-      //   let { a, b, ...rest } = { a: 10, b: 20, c: 30, d: 40 };
-      //   console.log(a, b, rest);
-      //   // console.log(rest.c, rest.d)
-      //   let { c, d } = rest;
-      //   console.log(c, d);
-      // }
+      {
+        let a = { b: 42, c: true };
+        // { 키명 : 변수명}
+        let { b: f, c: g } = a; // 다른 이름의 변수에 할당
+        console.log(f, g);
+      }
 
-      // {
-      //   let obj = { a: 10, b: 20, c: 30, d: 40 };
-      //   // obj객체에서 d 속성의 값을 80으로 수정하여 새로운 객체(newObj)를 생성하고,
-      //   // 속성과 같은 이름의 변수에 할당하여 출력하시오.
-      //   let newObj = { ...obj, d: 80 };
-      //   let { a, b, c, d } = newObj;
-      //   console.log(a, b, c, d);
-      // }
+      {
+        let { a, b, ...rest } = { a: 10, b: 20, c: 30, d: 40 };
+        console.log(a, b, rest);
+        console.log(rest.c, rest.d);
+        let { c, d } = rest;
+        console.log(c, d);
+      }
+
+      {
+        let obj = { a: 10, b: 20, c: 30, d: 40 };
+        // obj객체에서 d 속성의 값을 80으로 수정하여 새로운 객체(newObj)를 생성하고,
+        // 속성과 같은 이름의 변수에 할당하여 출력하시오.
+        let newObj = { ...obj, d: 80 };
+        let { a, b, c, d } = newObj;
+        console.log(a, b, c, d);
+      }
     </script>
   </body>
 </html>
