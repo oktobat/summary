@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- 
         Class는 객체를 생성하기 위한 템플릿
         Class는 데이터와 이를 조작하는 코드를 하나로 추상화함
         생성자 함수의 호출문은 선언문보다 먼저 나와도 상관없으나,
         클래스는 반드시 호출문이 선언문 뒤에 나와야 함
      -->
-     <script>
-        // function Student(name, html, css, js){
-        //     this.name = name
-        //     this.html = html
-        //     this.css = css
-        //     this.js = js
-        //     this.avg = function(){
-        //        return Math.round((this.html+this.css+this.js)/3)
-        //        }
-        // }
-        // let std1 = new Student('김은영', 80, 90, 100)        
-        // console.log(std1.avg())
+    <script>
+      // 생성자 함수 : 객체를 만드는 함수
+      //   let std1 = new Student("김은영", 80, 90, 100);
+      //   function Student(name, html, css, js) {
+      //     this.name = name;
+      //     this.html = html;
+      //     this.css = css;
+      //     this.js = js;
+      //     this.avg = function () {
+      //       return Math.round((this.html + this.css + this.js) / 3);
+      //     };
+      //   }
+      //   document.write(std1.name + "<br>");
+      //   document.write(std1.html + "<br>");
+      //   document.write(std1.css + "<br>");
+      //   document.write(std1.js + "<br>");
+      //   document.write(std1.avg() + "<br>");
+      //   let std2 = new Student("홍길동", 0, 0, 0);
+      //   document.write(std2.name + "<br>");
+      //   document.write(std2.html + "<br>");
+      //   document.write(std2.css + "<br>");
+      //   document.write(std2.js + "<br>");
+      //   document.write(std2.avg() + "<br>");
 
-        
-        class Student {
-            constructor(name, html, css, js) {
-                this.name = name
-                this.html = html
-                this.css = css
-                this.js = js
-            }
-            avg() {
-                return Math.round((this.html+this.css+this.js)/3)
-            }
+      class Student {
+        constructor(name, html, css, js) {
+          this.name = name;
+          this.html = html;
+          this.css = css;
+          this.js = js;
         }
-        let std1 = new Student('김은영', 80, 90, 100)
-        console.log(std1.avg())
-
-     </script>
-</body>
+        avg() {
+          return Math.round((this.html + this.css + this.js) / 3);
+        }
+      }
+      let std1 = new Student("김은영", 80, 90, 100);
+      document.write(std1.name + "<br>");
+      document.write(std1.html + "<br>");
+      document.write(std1.avg() + "<br>");
+      let std2 = new Student("홍길동", 0, 0, 0);
+      document.write(std2.name + "<br>");
+      document.write(std2.html + "<br>");
+      document.write(std2.avg() + "<br>");
+    </script>
+  </body>
 </html>

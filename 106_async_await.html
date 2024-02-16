@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <button onclick="fnStart()">비동기요청</button>
 
     <script>
-        // 비동기요청을 동기식으로 처리하기 위해 Promise 객체를 사용할 때는
-        // then() 메서드를 중첩해서 사용하므로 인해 동기와 비동기를 자유롭게 넘나들기 어려운 문제 발생
-        async function fnStart(){
-            console.log(await abc('a', 300))
-            console.log(await abc('b', 200))
-            console.log(await abc('c', 100))
+      // 비동기요청을 동기식으로 처리하기 위해 Promise 객체를 사용할 때는
+      // then() 메서드를 중첩해서 사용하므로 인해 동기와 비동기를 자유롭게 넘나들기 어려운 문제 발생
+      async function fnStart() {
+        console.log(await abc("a", 300));
+        console.log(await abc("b", 200));
+        console.log(await abc("c", 100));
+      }
+      function abc(value, time) {
+        return new Promise((resolve, reject) => {
+          setTimeout(function () {
+            resolve(value);
+          }, time);
+        });
+      }
+
+      async function fetchData() {
+        try {
+          const value = await fetch(
+            "https://apis.data.go.kr/5690000/sjBicycleRentalOfficeInformation/sj_00000810?serviceKey=tsxcXyzF%2BXgzdg7s3iUG9BMSxzhXszdC68k9VquGWo9zq657lbmJPTjMzeWFsX5JhFXJvf8Yfgeh56Vou5hiog%3D%3D&pageIndex=1&pageUnit=20&dataTy=json&searchCondition=fclty_Ty&searchKeyword=%EB%AC%B4%EC%9D%B8%EB%8C%80%EC%97%AC%EC%86%8C"
+          );
+          const pjson = await value.json();
+          console.log(pjson.body.items);
+        } catch (error) {
+          console.error("Error:", error);
+        } finally {
+          console.log("끝");
         }
-
-        function abc(value, time) {
-            return new Promise((resolve, reject)=>{
-                setTimeout( function(){
-                    resolve(value)
-                }, time )
-            })
-        }
-
-
+      }
+      fetchData();
     </script>
-
-</body>
+  </body>
 </html>

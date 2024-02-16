@@ -7,6 +7,15 @@
     <title>module 사용하기(PWA교재 p.53)</title>
   </head>
   <body>
+    <div class="box">
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+
     <!-- 
         외부 js 파일에서 module을 만들어 export 한후
         필요한 곳에서 module이 있는 js 파일을 import 하여 사용함
@@ -19,14 +28,26 @@
          아래 script문에서 module1.js 파일을 import하여 사용함
       -->
     <script type="module">
-      // import fnPlusNumbers from './module1.js'
-      // import myConHello from './module2.js'
-      // import { conHello, fnPlusNumbers } from './module2.js'
-      // import { myConHello, myFnPlusNumbers } from './module2.js'
-      import * as my from "./module2.js";
+      import kim from "./js/module1.js"; // default문으로 하나만 export한 경우에는 import문에서 변수의 이름 변경 가능
+      // import myConHello from "./js/module2.js"; (오류)
+      // import { conHello, fnPlusNumbers1 } from "./js/module2.js";
+      // import { myConHello, myFnPlusNumbers } from "./js/module2.js";
+      import * as my from "./js/module2.js";
 
-      var result = my.fnPlusNumbers(10, 20);
-      console.log(my.conHello, result);
+      let elp = document.querySelectorAll(".box > p");
+
+      let result = kim(10, 20);
+      elp[0].textContent = result;
+
+      // let result1 = conHello;
+      // let result1 = myConHello;
+      let result1 = my.conHello;
+      elp[1].textContent = result1;
+
+      // let result2 = fnPlusNumbers1(100, 200);
+      // let result2 = myFnPlusNumbers(100, 200);
+      let result2 = my.fnPlusNumbers(100, 200);
+      elp[2].textContent = result2;
     </script>
   </body>
 </html>

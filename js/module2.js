@@ -1,15 +1,8 @@
 const conHello = "안녕하세요";
 const fnPlusNumbers = (pNum1, pNum2) => pNum1 + pNum2;
 
-
-// export default conHello;
 export { conHello, fnPlusNumbers };
 // export { conHello as myConHello, fnPlusNumbers as myFnPlusNumbers };
-
-
-
-// export default 객체명;  대표로 하나만 export 할때
-// import 문에서 새로운 객체를 만들어 옮겨담을 수 있음
 
 // export {객체1, 객체2};  여러개를 export 할때
 // import 문에서도 { 객체1, 객체2 } 동일한 객체명을 사용해야 함

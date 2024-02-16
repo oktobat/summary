@@ -40,93 +40,93 @@
           );
         },
 
-        // setCounter : function(){
-        //     console.log(this.count)
-        //     btn.addEventListener('click', ()=>{
-        //         console.log(this.count)
-        //     })
-        // }
+        // setCounter: function () {
+        //   console.log(this.count);
+        //   btn.addEventListener("click", () => {
+        //     console.log(this.count);
+        //   });
+        // },
       };
       myObj.setCounter();
 
-      function kim() {
-        // parameter(매개변수)를 생략하면
-        console.log(arguments); // arguments라는 기본 파라미터가
-      } // 호출문에서 보낸 인수(argument)를 전부 받음
-      kim(80, 90, 100);
+      // function kim() {
+      //   // parameter(매개변수)를 생략하면
+      //   console.log(arguments); // arguments라는 기본 파라미터가
+      // } // 호출문에서 보낸 인수(argument)를 전부 받음
+      // kim(80, 90, 100);
 
-      // const park = ()=>{
-      //     console.log(arguments)     // 화살표함수에는 arguments를 사용할 수 없음
+      // // const park = ()=>{
+      // //     console.log(arguments)     // 화살표함수에는 arguments를 사용할 수 없음
+      // // }
+      // // park(80, 90, 100)
+
+      // // 배열구조분해
+      // {
+      //   let a, b;
+      //   [a, b] = [10, 20];
+      //   console.log(a, b);
       // }
-      // park(80, 90, 100)
 
-      // 배열구조분해
-      {
-        let a, b;
-        [a, b] = [10, 20];
-        console.log(a, b);
-      }
+      // {
+      //   let x = [1, 2, 3, 4, 5];
+      //   let [f, g] = x;
+      //   console.log(f, g);
+      // }
 
-      {
-        let x = [1, 2, 3, 4, 5];
-        let [f, g] = x;
-        console.log(f, g);
-      }
+      // {
+      //   let x = 100,
+      //     y = 200;
+      //   [y, x] = [x, y];
+      //   console.log(x, y);
+      // }
 
-      {
-        let x = 100,
-          y = 200;
-        [y, x] = [x, y];
-        console.log(x, y);
-      }
+      // {
+      //   let x = [1000, 2000, 3000];
+      //   let [s, , t] = x;
+      //   console.log(s, t);
+      // }
 
-      {
-        let x = [1000, 2000, 3000];
-        let [s, , t] = x;
-        console.log(s, t);
-      }
+      // {
+      //   let x = [10000, 20000, 30000];
+      //   let [o, ...p] = x; // ...(스프레드 연산자)
+      //   console.log(o, p);
+      // }
 
-      {
-        let x = [10000, 20000, 30000];
-        let [o, ...p] = x; // ...(스프레드 연산자)
-        console.log(o, p);
-      }
+      // // fruitOne.concat(fruitTwo)
+      // let fruitOne = ["apple", "banna"];
+      // // let fruitTwo = ['grape'];
+      // let fruitTwo = [...fruitOne, "grape"];
+      // console.log(fruitTwo);
 
-      // fruitOne.concat(fruitTwo)
-      let fruitOne = ["apple", "banna"];
-      // let fruitTwo = ['grape'];
-      let fruitTwo = [...fruitOne, "grape"];
-      console.log(fruitTwo);
+      // // 객체구조분해
+      // {
+      //   let a = { b: 42, c: true };
+      //   let { b, c } = a; // 객체의 원래 속성(키)명과 같은 이름의 변수에 할당
+      //   console.log(b, c);
+      // }
 
-      // 객체구조분해
-      {
-        let a = { b: 42, c: true };
-        let { b, c } = a; // 객체의 원래 속성(키)명과 같은 이름의 변수에 할당
-        console.log(b, c);
-      }
+      // {
+      //   let a = { b: 42, c: true };
+      //   let { b: f, c: g } = a; // 다른 이름의 변수에 할당
+      //   console.log(f, g);
+      // }
 
-      {
-        let a = { b: 42, c: true };
-        let { b: f, c: g } = a; // 다른 이름의 변수에 할당
-        console.log(f, g);
-      }
+      // {
+      //   let { a, b, ...rest } = { a: 10, b: 20, c: 30, d: 40 };
+      //   console.log(a, b, rest);
+      //   // console.log(rest.c, rest.d)
+      //   let { c, d } = rest;
+      //   console.log(c, d);
+      // }
 
-      {
-        let { a, b, ...rest } = { a: 10, b: 20, c: 30, d: 40 };
-        console.log(a, b, rest);
-        // console.log(rest.c, rest.d)
-        let { c, d } = rest;
-        console.log(c, d);
-      }
-
-      {
-        let obj = { a: 10, b: 20, c: 30, d: 40 };
-        // obj객체에서 d 속성의 값을 80으로 수정하여 새로운 객체(newObj)를 생성하고,
-        // 속성과 같은 이름의 변수에 할당하여 출력하시오.
-        let newObj = { ...obj, d: 80 };
-        let { a, b, c, d } = newObj;
-        console.log(a, b, c, d);
-      }
+      // {
+      //   let obj = { a: 10, b: 20, c: 30, d: 40 };
+      //   // obj객체에서 d 속성의 값을 80으로 수정하여 새로운 객체(newObj)를 생성하고,
+      //   // 속성과 같은 이름의 변수에 할당하여 출력하시오.
+      //   let newObj = { ...obj, d: 80 };
+      //   let { a, b, c, d } = newObj;
+      //   console.log(a, b, c, d);
+      // }
     </script>
   </body>
 </html>
