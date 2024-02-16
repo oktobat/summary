@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- 
         여러개의 비동기요청을 동기식으로 처리하려면 콜백함수를 사용해야 함
         일처리가 많아지면 콜백헬에 빠지게 됨
         코드의 가독성이 낮아지고 유지보수가 어렵게 됨
      -->
-     <script>
-        function a(callbackB) {   // callbackB <- function b(){}
-            console.log('a')
-            setTimeout(callbackB(c) , 200)
-        }
-        function b(callbackC) {   // callbackC <- function c(){}
-            console.log('b')
-            setTimeout(callbackC, 100)
-        }
-        function c() {
-            console.log('c')
-        }
-        // setTimeout(a, 300)
-        // setTimeout(b, 200)
-        // setTimeout(c, 100)
-        setTimeout(a(b), 300)
+    <script>
+      //   function a() {
+      //     console.log("a");
+      //   }
+      //   function b() {
+      //     console.log("b");
+      //   }
+      //   function c() {
+      //     console.log("c");
+      //   }
+      //   setTimeout(a, 300);
+      //   setTimeout(b, 200);
+      //   setTimeout(c, 100);
+      // c, b, a 순으로 출력됨
 
-     </script>
-
-</body>
+      // a, b, c 순으로 출력하려면 콜백함수를 사용해야 함
+      function a(callbackB) {
+        // callbackB <- function b(){}
+        console.log("a");
+        setTimeout(callbackB(c), 200);
+      }
+      function b(callbackC) {
+        // callbackC <- function c(){}
+        console.log("b");
+        setTimeout(callbackC, 100);
+      }
+      function c() {
+        console.log("c");
+      }
+      setTimeout(a(b), 300);
+    </script>
+  </body>
 </html>
