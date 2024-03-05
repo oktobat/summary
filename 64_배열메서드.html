@@ -114,13 +114,13 @@
       // 배열.sort(함수명) : 배열 요소들을 내림차순 또는 오름차순으로 정렬
       // 문자열 데이터 소트하는 함수
       function textSort(a, b) {
-        if (a > b) return -1;
-        if (a < b) return 1;
+        return a < b ? -1 : 1; // a<b(오름차순), a>b(내림차순)
       }
       // let sortArray = fruit.sort();  // 문자열 오름차순
       // let sortArray = fruit.sort(textSort);  // 문자열 내림차순
 
-      // 숫자 데이터 소트하는 함수
+      // 숫자 데이터 소트하는 함수(필요없음)
+      // 위의 함수로 문자든 숫자든 상관하지 않고 정렬할 수 있음
       function numSort(a, b) {
         return b - a; // 오름차순(a-b), 내림차순(b-a)
       }
@@ -187,6 +187,11 @@
         //                              false
       });
       document.write(removeDupleData + "<br>");
+
+      // 배열.find("찾는값") : 찾는 값이 있으면 그 값을 return하고 없으면 undefined
+      let actors = ["이동욱", "유연석", "김범"]
+      let actor = actors.find((item)=> item=="유연석" )
+      document.write(actor)  // 유연석
     </script>
   </body>
 </html>
