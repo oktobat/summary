@@ -36,16 +36,16 @@
     - 단, 동일한 브라우저를 사용할 때만 해당 
     - 지속적으로 필요한 데이터 저장(자동 로그인 등)
     - 저장 : localStorage.setItem('키명', '값')     
-             값이 숫자이면 JSON.stringify() 로 문자화해서 저장
+             문자가 아닌 값은 JSON.stringify() 로 문자화해서 저장
     - 추출 : localStorage.getItem('키명')           
-            문자화된 숫자는 JSON.parse() 로 추출함
+            문자화된 값은 JSON.parse() 로 추출함
     - 삭제 : localStorage.removeItem('키명')
     - 전부삭제 : localStorage.clear()
 
     세션 스토리지(sessionStorage)
     - 윈도우나 브라우저 탭을 닫을 경우 제거됨
     - 일시적으로 필요한 데이터 저장(일회성 로그인 정보, 입력폼 저장 등)
-     
+    - 나머지는 로컬스토리지와 동일함 
     -->
 
      <input id='set_btn' type='button' value='저장'>
